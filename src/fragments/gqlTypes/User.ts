@@ -7,18 +7,6 @@
 // GraphQL fragment: User
 // ====================================================
 
-export interface User_defaultShippingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
 export interface User_defaultShippingAddress {
   __typename: "Address";
   /**
@@ -32,11 +20,7 @@ export interface User_defaultShippingAddress {
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: User_defaultShippingAddress_country;
-  countryArea: string;
+
   phone: string | null;
   /**
    * Address is user's default billing address.
@@ -46,18 +30,6 @@ export interface User_defaultShippingAddress {
    * Address is user's default shipping address.
    */
   isDefaultShippingAddress: boolean | null;
-}
-
-export interface User_defaultBillingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
 }
 
 export interface User_defaultBillingAddress {
@@ -73,11 +45,6 @@ export interface User_defaultBillingAddress {
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: User_defaultBillingAddress_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.
@@ -87,18 +54,6 @@ export interface User_defaultBillingAddress {
    * Address is user's default shipping address.
    */
   isDefaultShippingAddress: boolean | null;
-}
-
-export interface User_addresses_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
 }
 
 export interface User_addresses {
@@ -114,11 +69,6 @@ export interface User_addresses {
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: User_addresses_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.

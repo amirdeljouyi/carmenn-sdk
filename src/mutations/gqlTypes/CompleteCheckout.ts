@@ -51,11 +51,6 @@ export interface CompleteCheckout_checkoutComplete_order_shippingAddress {
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: CompleteCheckout_checkoutComplete_order_shippingAddress_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.

@@ -104,11 +104,6 @@ export interface UserCheckoutDetails_me_checkout_billingAddress {
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: UserCheckoutDetails_me_checkout_billingAddress_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.
@@ -145,11 +140,7 @@ export interface UserCheckoutDetails_me_checkout_shippingAddress {
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: UserCheckoutDetails_me_checkout_shippingAddress_country;
-  countryArea: string;
+
   phone: string | null;
   /**
    * Address is user's default billing address.

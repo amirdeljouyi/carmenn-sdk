@@ -26,18 +26,6 @@ export interface SetCustomerDefaultAddress_accountSetDefaultAddress_errors {
   message: string | null;
 }
 
-export interface SetCustomerDefaultAddress_accountSetDefaultAddress_user_defaultShippingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
 export interface SetCustomerDefaultAddress_accountSetDefaultAddress_user_defaultShippingAddress {
   __typename: "Address";
   /**
@@ -51,11 +39,6 @@ export interface SetCustomerDefaultAddress_accountSetDefaultAddress_user_default
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: SetCustomerDefaultAddress_accountSetDefaultAddress_user_defaultShippingAddress_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.
@@ -92,11 +75,6 @@ export interface SetCustomerDefaultAddress_accountSetDefaultAddress_user_default
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: SetCustomerDefaultAddress_accountSetDefaultAddress_user_defaultBillingAddress_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.
@@ -133,11 +111,6 @@ export interface SetCustomerDefaultAddress_accountSetDefaultAddress_user_address
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: SetCustomerDefaultAddress_accountSetDefaultAddress_user_addresses_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.

@@ -18,12 +18,7 @@ export interface IAddress {
   streetAddress2?: string;
   city?: string;
   postalCode?: string;
-  countryArea?: string;
   phone?: string | null;
-  country?: {
-    code?: string;
-    country?: string;
-  };
 }
 
 export type IAvailableShippingMethods = Checkout_availableShippingMethods[];

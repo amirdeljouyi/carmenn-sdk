@@ -81,18 +81,6 @@ export interface CreateCheckoutPayment_checkoutPaymentCreate_checkout_subtotalPr
   net: CreateCheckoutPayment_checkoutPaymentCreate_checkout_subtotalPrice_net;
 }
 
-export interface CreateCheckoutPayment_checkoutPaymentCreate_checkout_billingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
 export interface CreateCheckoutPayment_checkoutPaymentCreate_checkout_billingAddress {
   __typename: "Address";
   /**
@@ -106,11 +94,6 @@ export interface CreateCheckoutPayment_checkoutPaymentCreate_checkout_billingAdd
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: CreateCheckoutPayment_checkoutPaymentCreate_checkout_billingAddress_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.
@@ -120,18 +103,6 @@ export interface CreateCheckoutPayment_checkoutPaymentCreate_checkout_billingAdd
    * Address is user's default shipping address.
    */
   isDefaultShippingAddress: boolean | null;
-}
-
-export interface CreateCheckoutPayment_checkoutPaymentCreate_checkout_shippingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
 }
 
 export interface CreateCheckoutPayment_checkoutPaymentCreate_checkout_shippingAddress {
@@ -147,11 +118,6 @@ export interface CreateCheckoutPayment_checkoutPaymentCreate_checkout_shippingAd
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: CreateCheckoutPayment_checkoutPaymentCreate_checkout_shippingAddress_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.

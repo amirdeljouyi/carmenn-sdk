@@ -26,18 +26,6 @@ export interface DeleteUserAddress_accountAddressDelete_errors {
   message: string | null;
 }
 
-export interface DeleteUserAddress_accountAddressDelete_user_defaultShippingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
 export interface DeleteUserAddress_accountAddressDelete_user_defaultShippingAddress {
   __typename: "Address";
   /**
@@ -51,11 +39,6 @@ export interface DeleteUserAddress_accountAddressDelete_user_defaultShippingAddr
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: DeleteUserAddress_accountAddressDelete_user_defaultShippingAddress_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.
@@ -65,18 +48,6 @@ export interface DeleteUserAddress_accountAddressDelete_user_defaultShippingAddr
    * Address is user's default shipping address.
    */
   isDefaultShippingAddress: boolean | null;
-}
-
-export interface DeleteUserAddress_accountAddressDelete_user_defaultBillingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
 }
 
 export interface DeleteUserAddress_accountAddressDelete_user_defaultBillingAddress {
@@ -92,11 +63,6 @@ export interface DeleteUserAddress_accountAddressDelete_user_defaultBillingAddre
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: DeleteUserAddress_accountAddressDelete_user_defaultBillingAddress_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.
@@ -106,18 +72,6 @@ export interface DeleteUserAddress_accountAddressDelete_user_defaultBillingAddre
    * Address is user's default shipping address.
    */
   isDefaultShippingAddress: boolean | null;
-}
-
-export interface DeleteUserAddress_accountAddressDelete_user_addresses_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
 }
 
 export interface DeleteUserAddress_accountAddressDelete_user_addresses {
@@ -133,11 +87,6 @@ export interface DeleteUserAddress_accountAddressDelete_user_addresses {
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: DeleteUserAddress_accountAddressDelete_user_addresses_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.

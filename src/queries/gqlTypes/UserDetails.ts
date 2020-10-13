@@ -32,11 +32,6 @@ export interface UserDetails_me_defaultShippingAddress {
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: UserDetails_me_defaultShippingAddress_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.
@@ -73,11 +68,6 @@ export interface UserDetails_me_defaultBillingAddress {
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: UserDetails_me_defaultBillingAddress_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.
@@ -114,11 +104,6 @@ export interface UserDetails_me_addresses {
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: UserDetails_me_addresses_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.

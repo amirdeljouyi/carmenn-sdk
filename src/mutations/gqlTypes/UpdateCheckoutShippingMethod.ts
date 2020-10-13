@@ -106,11 +106,6 @@ export interface UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_check
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_checkout_billingAddress_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.
@@ -147,11 +142,7 @@ export interface UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_check
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_checkout_shippingAddress_country;
-  countryArea: string;
+
   phone: string | null;
   /**
    * Address is user's default billing address.

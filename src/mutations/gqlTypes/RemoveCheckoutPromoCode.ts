@@ -81,18 +81,6 @@ export interface RemoveCheckoutPromoCode_checkoutRemovePromoCode_checkout_subtot
   net: RemoveCheckoutPromoCode_checkoutRemovePromoCode_checkout_subtotalPrice_net;
 }
 
-export interface RemoveCheckoutPromoCode_checkoutRemovePromoCode_checkout_billingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
 export interface RemoveCheckoutPromoCode_checkoutRemovePromoCode_checkout_billingAddress {
   __typename: "Address";
   /**
@@ -106,11 +94,6 @@ export interface RemoveCheckoutPromoCode_checkoutRemovePromoCode_checkout_billin
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: RemoveCheckoutPromoCode_checkoutRemovePromoCode_checkout_billingAddress_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.
@@ -120,18 +103,6 @@ export interface RemoveCheckoutPromoCode_checkoutRemovePromoCode_checkout_billin
    * Address is user's default shipping address.
    */
   isDefaultShippingAddress: boolean | null;
-}
-
-export interface RemoveCheckoutPromoCode_checkoutRemovePromoCode_checkout_shippingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
 }
 
 export interface RemoveCheckoutPromoCode_checkoutRemovePromoCode_checkout_shippingAddress {
@@ -147,11 +118,6 @@ export interface RemoveCheckoutPromoCode_checkoutRemovePromoCode_checkout_shippi
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: RemoveCheckoutPromoCode_checkoutRemovePromoCode_checkout_shippingAddress_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.

@@ -123,11 +123,6 @@ export interface UpdateCheckoutBillingAddressWithEmail_checkoutBillingAddressUpd
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: UpdateCheckoutBillingAddressWithEmail_checkoutBillingAddressUpdate_checkout_billingAddress_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.
@@ -164,11 +159,6 @@ export interface UpdateCheckoutBillingAddressWithEmail_checkoutBillingAddressUpd
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: UpdateCheckoutBillingAddressWithEmail_checkoutBillingAddressUpdate_checkout_shippingAddress_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.
@@ -713,11 +703,6 @@ export interface UpdateCheckoutBillingAddressWithEmail_checkoutEmailUpdate_check
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: UpdateCheckoutBillingAddressWithEmail_checkoutEmailUpdate_checkout_billingAddress_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.
@@ -754,11 +739,6 @@ export interface UpdateCheckoutBillingAddressWithEmail_checkoutEmailUpdate_check
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: UpdateCheckoutBillingAddressWithEmail_checkoutEmailUpdate_checkout_shippingAddress_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.

@@ -432,8 +432,6 @@ export interface AddressInput {
   city?: string | null;
   cityArea?: string | null;
   postalCode?: string | null;
-  country?: CountryCode | null;
-  countryArea?: string | null;
   phone?: string | null;
 }
 

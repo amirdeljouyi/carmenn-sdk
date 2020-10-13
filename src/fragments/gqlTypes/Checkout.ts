@@ -79,18 +79,6 @@ export interface Checkout_subtotalPrice {
   net: Checkout_subtotalPrice_net;
 }
 
-export interface Checkout_billingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
 export interface Checkout_billingAddress {
   __typename: "Address";
   /**
@@ -104,11 +92,6 @@ export interface Checkout_billingAddress {
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: Checkout_billingAddress_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.
@@ -118,18 +101,6 @@ export interface Checkout_billingAddress {
    * Address is user's default shipping address.
    */
   isDefaultShippingAddress: boolean | null;
-}
-
-export interface Checkout_shippingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
 }
 
 export interface Checkout_shippingAddress {
@@ -145,11 +116,6 @@ export interface Checkout_shippingAddress {
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: Checkout_shippingAddress_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.

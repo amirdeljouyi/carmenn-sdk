@@ -24,11 +24,6 @@ export const checkoutAddressFragment = gql`
     streetAddress2
     city
     postalCode
-    country {
-      code
-      country
-    }
-    countryArea
     phone
     isDefaultBillingAddress
     isDefaultShippingAddress

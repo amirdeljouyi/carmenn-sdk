@@ -26,18 +26,6 @@ export interface CreateUserAddress_accountAddressCreate_errors {
   message: string | null;
 }
 
-export interface CreateUserAddress_accountAddressCreate_user_defaultShippingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
 export interface CreateUserAddress_accountAddressCreate_user_defaultShippingAddress {
   __typename: "Address";
   /**
@@ -51,11 +39,7 @@ export interface CreateUserAddress_accountAddressCreate_user_defaultShippingAddr
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: CreateUserAddress_accountAddressCreate_user_defaultShippingAddress_country;
-  countryArea: string;
+
   phone: string | null;
   /**
    * Address is user's default billing address.
@@ -65,18 +49,6 @@ export interface CreateUserAddress_accountAddressCreate_user_defaultShippingAddr
    * Address is user's default shipping address.
    */
   isDefaultShippingAddress: boolean | null;
-}
-
-export interface CreateUserAddress_accountAddressCreate_user_defaultBillingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
 }
 
 export interface CreateUserAddress_accountAddressCreate_user_defaultBillingAddress {
@@ -92,11 +64,6 @@ export interface CreateUserAddress_accountAddressCreate_user_defaultBillingAddre
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: CreateUserAddress_accountAddressCreate_user_defaultBillingAddress_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.
@@ -106,18 +73,6 @@ export interface CreateUserAddress_accountAddressCreate_user_defaultBillingAddre
    * Address is user's default shipping address.
    */
   isDefaultShippingAddress: boolean | null;
-}
-
-export interface CreateUserAddress_accountAddressCreate_user_addresses_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
 }
 
 export interface CreateUserAddress_accountAddressCreate_user_addresses {
@@ -133,11 +88,6 @@ export interface CreateUserAddress_accountAddressCreate_user_addresses {
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: CreateUserAddress_accountAddressCreate_user_addresses_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.

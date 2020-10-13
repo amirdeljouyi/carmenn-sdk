@@ -3,7 +3,6 @@ import ApolloClient from "apollo-client";
 import { Checkout } from "../../fragments/gqlTypes/Checkout";
 import { Payment } from "../../fragments/gqlTypes/Payment";
 import { User } from "../../fragments/gqlTypes/User";
-import { CountryCode } from "../../gqlTypes/globalTypes";
 import {
   ICheckoutAddress,
   ICheckoutModel,
@@ -161,10 +160,7 @@ export class ApolloClientManager {
     };
   };
 
-  resetPasswordRequest = async (
-    email: string,
-    redirectUrl: string
-  ) => {
+  resetPasswordRequest = async (email: string, redirectUrl: string) => {
     const { data, errors } = await this.client.mutate<
       ResetPasswordRequest,
       ResetPasswordRequestVariables
@@ -479,11 +475,6 @@ export class ApolloClientManager {
           billingAddress: billingAddress && {
             city: billingAddress.city,
             companyName: billingAddress.companyName,
-            country:
-              CountryCode[
-                billingAddress?.country?.code as keyof typeof CountryCode
-              ],
-            countryArea: billingAddress.countryArea,
             firstName: billingAddress.firstName,
             lastName: billingAddress.lastName,
             phone: billingAddress.phone,
@@ -496,11 +487,6 @@ export class ApolloClientManager {
           shippingAddress: shippingAddress && {
             city: shippingAddress.city,
             companyName: shippingAddress.companyName,
-            country:
-              CountryCode[
-                shippingAddress?.country?.code as keyof typeof CountryCode
-              ],
-            countryArea: shippingAddress.countryArea,
             firstName: shippingAddress.firstName,
             lastName: shippingAddress.lastName,
             phone: shippingAddress.phone,
@@ -601,11 +587,6 @@ export class ApolloClientManager {
         shippingAddress: {
           city: shippingAddress.city,
           companyName: shippingAddress.companyName,
-          country:
-            CountryCode[
-              shippingAddress?.country?.code as keyof typeof CountryCode
-            ],
-          countryArea: shippingAddress.countryArea,
           firstName: shippingAddress.firstName,
           lastName: shippingAddress.lastName,
           phone: shippingAddress.phone,
@@ -661,11 +642,6 @@ export class ApolloClientManager {
         billingAddress: {
           city: billingAddress.city,
           companyName: billingAddress.companyName,
-          country:
-            CountryCode[
-              billingAddress?.country?.code as keyof typeof CountryCode
-            ],
-          countryArea: billingAddress.countryArea,
           firstName: billingAddress.firstName,
           lastName: billingAddress.lastName,
           phone: billingAddress.phone,
@@ -718,11 +694,6 @@ export class ApolloClientManager {
         billingAddress: {
           city: billingAddress.city,
           companyName: billingAddress.companyName,
-          country:
-            CountryCode[
-              billingAddress?.country?.code as keyof typeof CountryCode
-            ],
-          countryArea: billingAddress.countryArea,
           firstName: billingAddress.firstName,
           lastName: billingAddress.lastName,
           phone: billingAddress.phone,
@@ -894,11 +865,6 @@ export class ApolloClientManager {
           billingAddress: {
             city: billingAddress.city,
             companyName: billingAddress.companyName,
-            country:
-              CountryCode[
-                billingAddress?.country?.code as keyof typeof CountryCode
-              ],
-            countryArea: billingAddress.countryArea,
             firstName: billingAddress.firstName,
             lastName: billingAddress.lastName,
             phone: billingAddress.phone,

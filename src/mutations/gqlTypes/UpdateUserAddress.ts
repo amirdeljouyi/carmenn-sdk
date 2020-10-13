@@ -54,8 +54,6 @@ export interface UpdateUserAddress_accountAddressUpdate_user_defaultShippingAddr
   /**
    * Shop's default country.
    */
-  country: UpdateUserAddress_accountAddressUpdate_user_defaultShippingAddress_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.
@@ -95,8 +93,6 @@ export interface UpdateUserAddress_accountAddressUpdate_user_defaultBillingAddre
   /**
    * Shop's default country.
    */
-  country: UpdateUserAddress_accountAddressUpdate_user_defaultBillingAddress_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.
@@ -136,8 +132,6 @@ export interface UpdateUserAddress_accountAddressUpdate_user_addresses {
   /**
    * Shop's default country.
    */
-  country: UpdateUserAddress_accountAddressUpdate_user_addresses_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.

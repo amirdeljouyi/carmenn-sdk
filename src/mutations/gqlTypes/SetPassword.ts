@@ -51,11 +51,6 @@ export interface SetPassword_setPassword_user_defaultShippingAddress {
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: SetPassword_setPassword_user_defaultShippingAddress_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.
@@ -92,11 +87,6 @@ export interface SetPassword_setPassword_user_defaultBillingAddress {
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: SetPassword_setPassword_user_defaultBillingAddress_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.
@@ -133,11 +123,6 @@ export interface SetPassword_setPassword_user_addresses {
   streetAddress2: string;
   city: string;
   postalCode: string;
-  /**
-   * Shop's default country.
-   */
-  country: SetPassword_setPassword_user_addresses_country;
-  countryArea: string;
   phone: string | null;
   /**
    * Address is user's default billing address.
