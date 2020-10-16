@@ -12,6 +12,8 @@
   },
   "plugins": ["import", "react", "prettier"],
   "rules": {
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["off"],
     "comma-spacing": "off",
     "sort-keys": "error",
     "sort-imports": "off",
