@@ -1,13 +1,13 @@
 import gql from "graphql-tag";
 import { checkoutPriceFragment } from "./checkout";
+// import {categoryWithProductsFragment} from "./categories";
+import { categoryFragment } from "./categories";
 
 export const baseProductFragment = gql`
   fragment BaseProduct on Product {
     id
     name
     slug
-    seoDescription
-    seoTitle
     thumbnail {
       url
       alt
@@ -38,7 +38,7 @@ export const productVariantFragment = gql`
     id
     sku
     name
-    quantityAvailable()
+    quantityAvailable
     isAvailable
     images {
       id
@@ -99,25 +99,13 @@ export const productFragment = gql`
   ${selectedAttributeFragment}
   ${productVariantFragment}
   ${productPricingFragment}
+  ${categoryFragment}
   fragment ProductDetails on Product {
     ...BaseProduct
     ...ProductPricingField
     descriptionJson
-    category {
-      id
-      name
-      products(first: 3) {
-        edges {
-          node {
-            ...BaseProduct
-            ...ProductPricingField
-            category {
-              id
-              name
-            }
-          }
-        }
-      }
+    categories {
+      ...CategoryDetails
     }
     images {
       id

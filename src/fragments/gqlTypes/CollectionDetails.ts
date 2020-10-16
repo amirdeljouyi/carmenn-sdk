@@ -27,8 +27,6 @@ export interface CollectionDetails {
   id: string;
   name: string;
   slug: string;
-  seoDescription: string | null;
-  seoTitle: string | null;
   backgroundImage: CollectionDetails_backgroundImage | null;
   description: string;
   descriptionJson: any;

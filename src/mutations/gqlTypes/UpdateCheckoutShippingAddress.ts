@@ -98,54 +98,6 @@ export interface UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_che
   net: UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_checkout_subtotalPrice_net;
 }
 
-export interface UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_checkout_billingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
-export interface UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_checkout_billingAddress {
-  __typename: "Address";
-  /**
-   * The ID of the object.
-   */
-  id: string;
-  firstName: string;
-  lastName: string;
-  companyName: string;
-  streetAddress1: string;
-  streetAddress2: string;
-  city: string;
-  postalCode: string;
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
-  /**
-   * Address is user's default shipping address.
-   */
-  isDefaultShippingAddress: boolean | null;
-}
-
-export interface UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_checkout_shippingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
 export interface UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_checkout_shippingAddress {
   __typename: "Address";
   /**
@@ -159,11 +111,7 @@ export interface UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_che
   streetAddress2: string;
   city: string;
   postalCode: string;
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
+  phone: string;
   /**
    * Address is user's default shipping address.
    */
@@ -440,7 +388,6 @@ export interface UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_che
    * The ID of the object.
    */
   id: string;
-  isShippingRequired: boolean;
 }
 
 export interface UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_checkout_lines_variant_product {
@@ -548,9 +495,6 @@ export interface UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_che
 
 export interface UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_checkout {
   __typename: "Checkout";
-  /**
-   * The checkout's token.
-   */
   token: any;
   /**
    * The ID of the object.
@@ -564,7 +508,6 @@ export interface UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_che
    * The price of the checkout before shipping, with taxes included.
    */
   subtotalPrice: UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_checkout_subtotalPrice | null;
-  billingAddress: UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_checkout_billingAddress | null;
   shippingAddress: UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_checkout_shippingAddress | null;
   /**
    * Email of a customer.
@@ -583,13 +526,8 @@ export interface UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_che
    * A list of checkout lines, each containing information about an item in the checkout.
    */
   lines: (UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_checkout_lines | null)[] | null;
-  /**
-   * Returns True, if checkout requires shipping.
-   */
-  isShippingRequired: boolean;
   discount: UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_checkout_discount | null;
   discountName: string | null;
-  translatedDiscountName: string | null;
   voucherCode: string | null;
   /**
    * List of available payment gateways.
@@ -678,54 +616,6 @@ export interface UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout_subt
   net: UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout_subtotalPrice_net;
 }
 
-export interface UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout_billingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
-export interface UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout_billingAddress {
-  __typename: "Address";
-  /**
-   * The ID of the object.
-   */
-  id: string;
-  firstName: string;
-  lastName: string;
-  companyName: string;
-  streetAddress1: string;
-  streetAddress2: string;
-  city: string;
-  postalCode: string;
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
-  /**
-   * Address is user's default shipping address.
-   */
-  isDefaultShippingAddress: boolean | null;
-}
-
-export interface UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout_shippingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
 export interface UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout_shippingAddress {
   __typename: "Address";
   /**
@@ -739,11 +629,7 @@ export interface UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout_ship
   streetAddress2: string;
   city: string;
   postalCode: string;
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
+  phone: string;
   /**
    * Address is user's default shipping address.
    */
@@ -1020,7 +906,6 @@ export interface UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout_line
    * The ID of the object.
    */
   id: string;
-  isShippingRequired: boolean;
 }
 
 export interface UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout_lines_variant_product {
@@ -1128,9 +1013,6 @@ export interface UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout_avai
 
 export interface UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout {
   __typename: "Checkout";
-  /**
-   * The checkout's token.
-   */
   token: any;
   /**
    * The ID of the object.
@@ -1144,7 +1026,6 @@ export interface UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout {
    * The price of the checkout before shipping, with taxes included.
    */
   subtotalPrice: UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout_subtotalPrice | null;
-  billingAddress: UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout_billingAddress | null;
   shippingAddress: UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout_shippingAddress | null;
   /**
    * Email of a customer.
@@ -1163,13 +1044,8 @@ export interface UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout {
    * A list of checkout lines, each containing information about an item in the checkout.
    */
   lines: (UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout_lines | null)[] | null;
-  /**
-   * Returns True, if checkout requires shipping.
-   */
-  isShippingRequired: boolean;
   discount: UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout_discount | null;
   discountName: string | null;
-  translatedDiscountName: string | null;
   voucherCode: string | null;
   /**
    * List of available payment gateways.

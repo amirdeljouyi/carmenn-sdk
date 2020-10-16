@@ -79,54 +79,6 @@ export interface CheckoutDetails_checkout_subtotalPrice {
   net: CheckoutDetails_checkout_subtotalPrice_net;
 }
 
-export interface CheckoutDetails_checkout_billingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
-export interface CheckoutDetails_checkout_billingAddress {
-  __typename: "Address";
-  /**
-   * The ID of the object.
-   */
-  id: string;
-  firstName: string;
-  lastName: string;
-  companyName: string;
-  streetAddress1: string;
-  streetAddress2: string;
-  city: string;
-  postalCode: string;
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
-  /**
-   * Address is user's default shipping address.
-   */
-  isDefaultShippingAddress: boolean | null;
-}
-
-export interface CheckoutDetails_checkout_shippingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
 export interface CheckoutDetails_checkout_shippingAddress {
   __typename: "Address";
   /**
@@ -140,12 +92,7 @@ export interface CheckoutDetails_checkout_shippingAddress {
   streetAddress2: string;
   city: string;
   postalCode: string;
-
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
+  phone: string;
   /**
    * Address is user's default shipping address.
    */
@@ -422,7 +369,6 @@ export interface CheckoutDetails_checkout_lines_variant_product_productType {
    * The ID of the object.
    */
   id: string;
-  isShippingRequired: boolean;
 }
 
 export interface CheckoutDetails_checkout_lines_variant_product {
@@ -530,9 +476,6 @@ export interface CheckoutDetails_checkout_availablePaymentGateways {
 
 export interface CheckoutDetails_checkout {
   __typename: "Checkout";
-  /**
-   * The checkout's token.
-   */
   token: any;
   /**
    * The ID of the object.
@@ -546,7 +489,6 @@ export interface CheckoutDetails_checkout {
    * The price of the checkout before shipping, with taxes included.
    */
   subtotalPrice: CheckoutDetails_checkout_subtotalPrice | null;
-  billingAddress: CheckoutDetails_checkout_billingAddress | null;
   shippingAddress: CheckoutDetails_checkout_shippingAddress | null;
   /**
    * Email of a customer.
@@ -565,13 +507,8 @@ export interface CheckoutDetails_checkout {
    * A list of checkout lines, each containing information about an item in the checkout.
    */
   lines: (CheckoutDetails_checkout_lines | null)[] | null;
-  /**
-   * Returns True, if checkout requires shipping.
-   */
-  isShippingRequired: boolean;
   discount: CheckoutDetails_checkout_discount | null;
   discountName: string | null;
-  translatedDiscountName: string | null;
   voucherCode: string | null;
   /**
    * List of available payment gateways.

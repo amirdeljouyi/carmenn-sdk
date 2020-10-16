@@ -161,7 +161,6 @@ export interface ProductVariant_product_productType {
    * The ID of the object.
    */
   id: string;
-  isShippingRequired: boolean;
 }
 
 export interface ProductVariant_product {

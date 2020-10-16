@@ -25,7 +25,6 @@ export const checkoutAddressFragment = gql`
     city
     postalCode
     phone
-    isDefaultBillingAddress
     isDefaultShippingAddress
   }
 `;
@@ -70,7 +69,6 @@ export const checkoutProductVariantFragment = gql`
       }
       productType {
         id
-        isShippingRequired
       }
     }
   }
@@ -117,9 +115,6 @@ export const checkoutFragment = gql`
     subtotalPrice {
       ...Price
     }
-    billingAddress {
-      ...Address
-    }
     shippingAddress {
       ...Address
     }
@@ -136,13 +131,11 @@ export const checkoutFragment = gql`
     lines {
       ...CheckoutLine
     }
-    isShippingRequired
     discount {
       currency
       amount
     }
     discountName
-    translatedDiscountName
     voucherCode
     availablePaymentGateways {
       ...PaymentGateway

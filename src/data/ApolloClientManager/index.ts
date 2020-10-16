@@ -853,36 +853,25 @@ export class ApolloClientManager {
     amount,
     checkoutId,
     gateway,
-    billingAddress,
     token,
     returnUrl,
   }: CreatePaymentInput) => {
     try {
-      const variables = {
-        checkoutId,
-        paymentInput: {
-          amount,
-          billingAddress: {
-            city: billingAddress.city,
-            companyName: billingAddress.companyName,
-            firstName: billingAddress.firstName,
-            lastName: billingAddress.lastName,
-            phone: billingAddress.phone,
-            postalCode: billingAddress.postalCode,
-            streetAddress1: billingAddress.streetAddress1,
-            streetAddress2: billingAddress.streetAddress2,
-          },
-          gateway,
-          returnUrl,
-          token,
-        },
-      };
+      // const variables = {
+      //   checkoutId,
+      //   paymentInput: {
+      //     amount,
+      //     gateway,
+      //     returnUrl,
+      //     token,
+      //   },
+      // };
       const { data, errors } = await this.client.mutate<
         CreateCheckoutPayment,
         CreateCheckoutPaymentVariables
       >({
         mutation: CheckoutMutations.createCheckoutPaymentMutation,
-        variables,
+        // variables,
       });
 
       if (errors?.length) {
@@ -958,7 +947,6 @@ export class ApolloClientManager {
     token,
     email,
     shippingAddress,
-    billingAddress,
     discount,
     discountName,
     voucherCode,
@@ -971,7 +959,6 @@ export class ApolloClientManager {
     availableShippingMethods: availableShippingMethods
       ? availableShippingMethods.filter(filterNotEmptyArrayItems)
       : [],
-    billingAddress,
     email,
     id,
     lines: lines
@@ -1009,10 +996,8 @@ export class ApolloClientManager {
     id,
     gateway,
     token,
-    creditCard,
     total,
   }: Payment): IPaymentModel => ({
-    creditCard,
     gateway,
     id,
     token,

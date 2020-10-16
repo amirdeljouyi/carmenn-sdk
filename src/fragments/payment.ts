@@ -5,13 +5,6 @@ export const paymentFragment = gql`
     id
     gateway
     token
-    creditCard {
-      brand
-      firstDigits
-      lastDigits
-      expMonth
-      expYear
-    }
     total {
       amount
       currency

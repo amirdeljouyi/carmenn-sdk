@@ -197,7 +197,6 @@ export interface CheckoutLine_variant_product_productType {
    * The ID of the object.
    */
   id: string;
-  isShippingRequired: boolean;
 }
 
 export interface CheckoutLine_variant_product {

@@ -161,7 +161,6 @@ export interface CheckoutProductVariants_productVariants_edges_node_product_prod
    * The ID of the object.
    */
   id: string;
-  isShippingRequired: boolean;
 }
 
 export interface CheckoutProductVariants_productVariants_edges_node_product {

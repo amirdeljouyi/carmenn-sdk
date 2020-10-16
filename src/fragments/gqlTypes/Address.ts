@@ -20,11 +20,7 @@ export interface Address {
   streetAddress2: string;
   city: string;
   postalCode: string;
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
+  phone: string;
   /**
    * Address is user's default shipping address.
    */

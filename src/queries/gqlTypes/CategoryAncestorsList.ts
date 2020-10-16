@@ -15,8 +15,6 @@ export interface CategoryAncestorsList_category_ancestors_edges_node {
   id: string;
   name: string;
   slug: string;
-  seoDescription: string | null;
-  seoTitle: string | null;
 }
 
 export interface CategoryAncestorsList_category_ancestors_edges {

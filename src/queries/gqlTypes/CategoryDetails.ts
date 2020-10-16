@@ -27,8 +27,6 @@ export interface CategoryDetails_category {
   id: string;
   name: string;
   slug: string;
-  seoDescription: string | null;
-  seoTitle: string | null;
   backgroundImage: CategoryDetails_category_backgroundImage | null;
   description: string;
   descriptionJson: any;

@@ -15,8 +15,6 @@ export interface CategoryList_categories_edges_node {
   id: string;
   name: string;
   slug: string;
-  seoDescription: string | null;
-  seoTitle: string | null;
 }
 
 export interface CategoryList_categories_edges {

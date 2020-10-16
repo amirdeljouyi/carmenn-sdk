@@ -13,9 +13,6 @@ export const userFragment = gql`
     defaultShippingAddress {
       ...Address
     }
-    defaultBillingAddress {
-      ...Address
-    }
     addresses {
       ...Address
     }

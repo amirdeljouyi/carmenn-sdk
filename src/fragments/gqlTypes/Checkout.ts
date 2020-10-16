@@ -79,30 +79,6 @@ export interface Checkout_subtotalPrice {
   net: Checkout_subtotalPrice_net;
 }
 
-export interface Checkout_billingAddress {
-  __typename: "Address";
-  /**
-   * The ID of the object.
-   */
-  id: string;
-  firstName: string;
-  lastName: string;
-  companyName: string;
-  streetAddress1: string;
-  streetAddress2: string;
-  city: string;
-  postalCode: string;
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
-  /**
-   * Address is user's default shipping address.
-   */
-  isDefaultShippingAddress: boolean | null;
-}
-
 export interface Checkout_shippingAddress {
   __typename: "Address";
   /**
@@ -116,11 +92,7 @@ export interface Checkout_shippingAddress {
   streetAddress2: string;
   city: string;
   postalCode: string;
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
+  phone: string;
   /**
    * Address is user's default shipping address.
    */
@@ -397,7 +369,6 @@ export interface Checkout_lines_variant_product_productType {
    * The ID of the object.
    */
   id: string;
-  isShippingRequired: boolean;
 }
 
 export interface Checkout_lines_variant_product {
@@ -505,9 +476,6 @@ export interface Checkout_availablePaymentGateways {
 
 export interface Checkout {
   __typename: "Checkout";
-  /**
-   * The checkout's token.
-   */
   token: any;
   /**
    * The ID of the object.
@@ -521,7 +489,6 @@ export interface Checkout {
    * The price of the checkout before shipping, with taxes included.
    */
   subtotalPrice: Checkout_subtotalPrice | null;
-  billingAddress: Checkout_billingAddress | null;
   shippingAddress: Checkout_shippingAddress | null;
   /**
    * Email of a customer.
@@ -540,13 +507,8 @@ export interface Checkout {
    * A list of checkout lines, each containing information about an item in the checkout.
    */
   lines: (Checkout_lines | null)[] | null;
-  /**
-   * Returns True, if checkout requires shipping.
-   */
-  isShippingRequired: boolean;
   discount: Checkout_discount | null;
   discountName: string | null;
-  translatedDiscountName: string | null;
   voucherCode: string | null;
   /**
    * List of available payment gateways.

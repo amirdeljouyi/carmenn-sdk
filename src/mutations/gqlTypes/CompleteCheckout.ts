@@ -26,18 +26,6 @@ export interface CompleteCheckout_checkoutComplete_errors {
   message: string | null;
 }
 
-export interface CompleteCheckout_checkoutComplete_order_shippingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
 export interface CompleteCheckout_checkoutComplete_order_shippingAddress {
   __typename: "Address";
   /**
@@ -51,11 +39,7 @@ export interface CompleteCheckout_checkoutComplete_order_shippingAddress {
   streetAddress2: string;
   city: string;
   postalCode: string;
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
+  phone: string;
   /**
    * Address is user's default shipping address.
    */
@@ -216,7 +200,6 @@ export interface CompleteCheckout_checkoutComplete_order_lines_variant_product_p
    * The ID of the object.
    */
   id: string;
-  isShippingRequired: boolean;
 }
 
 export interface CompleteCheckout_checkoutComplete_order_lines_variant_product {

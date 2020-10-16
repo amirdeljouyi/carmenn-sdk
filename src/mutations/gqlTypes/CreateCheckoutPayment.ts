@@ -81,30 +81,6 @@ export interface CreateCheckoutPayment_checkoutPaymentCreate_checkout_subtotalPr
   net: CreateCheckoutPayment_checkoutPaymentCreate_checkout_subtotalPrice_net;
 }
 
-export interface CreateCheckoutPayment_checkoutPaymentCreate_checkout_billingAddress {
-  __typename: "Address";
-  /**
-   * The ID of the object.
-   */
-  id: string;
-  firstName: string;
-  lastName: string;
-  companyName: string;
-  streetAddress1: string;
-  streetAddress2: string;
-  city: string;
-  postalCode: string;
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
-  /**
-   * Address is user's default shipping address.
-   */
-  isDefaultShippingAddress: boolean | null;
-}
-
 export interface CreateCheckoutPayment_checkoutPaymentCreate_checkout_shippingAddress {
   __typename: "Address";
   /**
@@ -118,11 +94,7 @@ export interface CreateCheckoutPayment_checkoutPaymentCreate_checkout_shippingAd
   streetAddress2: string;
   city: string;
   postalCode: string;
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
+  phone: string;
   /**
    * Address is user's default shipping address.
    */
@@ -399,7 +371,6 @@ export interface CreateCheckoutPayment_checkoutPaymentCreate_checkout_lines_vari
    * The ID of the object.
    */
   id: string;
-  isShippingRequired: boolean;
 }
 
 export interface CreateCheckoutPayment_checkoutPaymentCreate_checkout_lines_variant_product {
@@ -507,9 +478,6 @@ export interface CreateCheckoutPayment_checkoutPaymentCreate_checkout_availableP
 
 export interface CreateCheckoutPayment_checkoutPaymentCreate_checkout {
   __typename: "Checkout";
-  /**
-   * The checkout's token.
-   */
   token: any;
   /**
    * The ID of the object.
@@ -523,7 +491,6 @@ export interface CreateCheckoutPayment_checkoutPaymentCreate_checkout {
    * The price of the checkout before shipping, with taxes included.
    */
   subtotalPrice: CreateCheckoutPayment_checkoutPaymentCreate_checkout_subtotalPrice | null;
-  billingAddress: CreateCheckoutPayment_checkoutPaymentCreate_checkout_billingAddress | null;
   shippingAddress: CreateCheckoutPayment_checkoutPaymentCreate_checkout_shippingAddress | null;
   /**
    * Email of a customer.
@@ -542,42 +509,13 @@ export interface CreateCheckoutPayment_checkoutPaymentCreate_checkout {
    * A list of checkout lines, each containing information about an item in the checkout.
    */
   lines: (CreateCheckoutPayment_checkoutPaymentCreate_checkout_lines | null)[] | null;
-  /**
-   * Returns True, if checkout requires shipping.
-   */
-  isShippingRequired: boolean;
   discount: CreateCheckoutPayment_checkoutPaymentCreate_checkout_discount | null;
   discountName: string | null;
-  translatedDiscountName: string | null;
   voucherCode: string | null;
   /**
    * List of available payment gateways.
    */
   availablePaymentGateways: CreateCheckoutPayment_checkoutPaymentCreate_checkout_availablePaymentGateways[];
-}
-
-export interface CreateCheckoutPayment_checkoutPaymentCreate_payment_creditCard {
-  __typename: "CreditCard";
-  /**
-   * Card brand.
-   */
-  brand: string;
-  /**
-   * First 4 digits of the card number.
-   */
-  firstDigits: string | null;
-  /**
-   * Last 4 digits of the card number.
-   */
-  lastDigits: string;
-  /**
-   * Two-digit number representing the card’s expiration month.
-   */
-  expMonth: number | null;
-  /**
-   * Four-digit number representing the card’s expiration year.
-   */
-  expYear: number | null;
 }
 
 export interface CreateCheckoutPayment_checkoutPaymentCreate_payment_total {
@@ -600,10 +538,6 @@ export interface CreateCheckoutPayment_checkoutPaymentCreate_payment {
   id: string;
   gateway: string;
   token: string;
-  /**
-   * The details of the card used for this payment.
-   */
-  creditCard: CreateCheckoutPayment_checkoutPaymentCreate_payment_creditCard | null;
   /**
    * Total amount of the payment.
    */

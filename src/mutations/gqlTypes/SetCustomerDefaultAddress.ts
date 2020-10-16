@@ -39,63 +39,11 @@ export interface SetCustomerDefaultAddress_accountSetDefaultAddress_user_default
   streetAddress2: string;
   city: string;
   postalCode: string;
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
+  phone: string;
   /**
    * Address is user's default shipping address.
    */
   isDefaultShippingAddress: boolean | null;
-}
-
-export interface SetCustomerDefaultAddress_accountSetDefaultAddress_user_defaultBillingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
-export interface SetCustomerDefaultAddress_accountSetDefaultAddress_user_defaultBillingAddress {
-  __typename: "Address";
-  /**
-   * The ID of the object.
-   */
-  id: string;
-  firstName: string;
-  lastName: string;
-  companyName: string;
-  streetAddress1: string;
-  streetAddress2: string;
-  city: string;
-  postalCode: string;
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
-  /**
-   * Address is user's default shipping address.
-   */
-  isDefaultShippingAddress: boolean | null;
-}
-
-export interface SetCustomerDefaultAddress_accountSetDefaultAddress_user_addresses_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
 }
 
 export interface SetCustomerDefaultAddress_accountSetDefaultAddress_user_addresses {
@@ -111,11 +59,7 @@ export interface SetCustomerDefaultAddress_accountSetDefaultAddress_user_address
   streetAddress2: string;
   city: string;
   postalCode: string;
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
+  phone: string;
   /**
    * Address is user's default shipping address.
    */
@@ -131,9 +75,11 @@ export interface SetCustomerDefaultAddress_accountSetDefaultAddress_user {
   email: string;
   firstName: string;
   lastName: string;
+  /**
+   * Designates whether the user can log into this admin site.
+   */
   isStaff: boolean;
   defaultShippingAddress: SetCustomerDefaultAddress_accountSetDefaultAddress_user_defaultShippingAddress | null;
-  defaultBillingAddress: SetCustomerDefaultAddress_accountSetDefaultAddress_user_defaultBillingAddress | null;
   /**
    * List of all user's addresses.
    */

@@ -22,12 +22,7 @@ export interface OrderDetail_shippingAddress {
   streetAddress2: string;
   city: string;
   postalCode: string;
-
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
+  phone: string;
   /**
    * Address is user's default shipping address.
    */
@@ -188,7 +183,6 @@ export interface OrderDetail_lines_variant_product_productType {
    * The ID of the object.
    */
   id: string;
-  isShippingRequired: boolean;
 }
 
 export interface OrderDetail_lines_variant_product {

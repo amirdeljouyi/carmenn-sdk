@@ -5,8 +5,6 @@ export const baseCollectionFragment = gql`
     id
     name
     slug
-    seoDescription
-    seoTitle
   }
 `;
 

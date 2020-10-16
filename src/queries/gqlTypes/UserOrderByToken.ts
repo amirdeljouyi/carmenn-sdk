@@ -9,18 +9,6 @@ import { PaymentChargeStatusEnum, OrderStatus, JobStatusEnum } from "./../../gql
 // GraphQL query operation: UserOrderByToken
 // ====================================================
 
-export interface UserOrderByToken_orderByToken_shippingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
 export interface UserOrderByToken_orderByToken_shippingAddress {
   __typename: "Address";
   /**
@@ -34,12 +22,7 @@ export interface UserOrderByToken_orderByToken_shippingAddress {
   streetAddress2: string;
   city: string;
   postalCode: string;
-
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
+  phone: string;
   /**
    * Address is user's default shipping address.
    */
@@ -200,7 +183,6 @@ export interface UserOrderByToken_orderByToken_lines_variant_product_productType
    * The ID of the object.
    */
   id: string;
-  isShippingRequired: boolean;
 }
 
 export interface UserOrderByToken_orderByToken_lines_variant_product {

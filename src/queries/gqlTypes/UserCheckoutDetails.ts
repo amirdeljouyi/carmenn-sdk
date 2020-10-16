@@ -79,54 +79,6 @@ export interface UserCheckoutDetails_me_checkout_subtotalPrice {
   net: UserCheckoutDetails_me_checkout_subtotalPrice_net;
 }
 
-export interface UserCheckoutDetails_me_checkout_billingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
-export interface UserCheckoutDetails_me_checkout_billingAddress {
-  __typename: "Address";
-  /**
-   * The ID of the object.
-   */
-  id: string;
-  firstName: string;
-  lastName: string;
-  companyName: string;
-  streetAddress1: string;
-  streetAddress2: string;
-  city: string;
-  postalCode: string;
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
-  /**
-   * Address is user's default shipping address.
-   */
-  isDefaultShippingAddress: boolean | null;
-}
-
-export interface UserCheckoutDetails_me_checkout_shippingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
 export interface UserCheckoutDetails_me_checkout_shippingAddress {
   __typename: "Address";
   /**
@@ -140,12 +92,7 @@ export interface UserCheckoutDetails_me_checkout_shippingAddress {
   streetAddress2: string;
   city: string;
   postalCode: string;
-
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
+  phone: string;
   /**
    * Address is user's default shipping address.
    */
@@ -422,7 +369,6 @@ export interface UserCheckoutDetails_me_checkout_lines_variant_product_productTy
    * The ID of the object.
    */
   id: string;
-  isShippingRequired: boolean;
 }
 
 export interface UserCheckoutDetails_me_checkout_lines_variant_product {
@@ -530,9 +476,6 @@ export interface UserCheckoutDetails_me_checkout_availablePaymentGateways {
 
 export interface UserCheckoutDetails_me_checkout {
   __typename: "Checkout";
-  /**
-   * The checkout's token.
-   */
   token: any;
   /**
    * The ID of the object.
@@ -546,7 +489,6 @@ export interface UserCheckoutDetails_me_checkout {
    * The price of the checkout before shipping, with taxes included.
    */
   subtotalPrice: UserCheckoutDetails_me_checkout_subtotalPrice | null;
-  billingAddress: UserCheckoutDetails_me_checkout_billingAddress | null;
   shippingAddress: UserCheckoutDetails_me_checkout_shippingAddress | null;
   /**
    * Email of a customer.
@@ -565,13 +507,8 @@ export interface UserCheckoutDetails_me_checkout {
    * A list of checkout lines, each containing information about an item in the checkout.
    */
   lines: (UserCheckoutDetails_me_checkout_lines | null)[] | null;
-  /**
-   * Returns True, if checkout requires shipping.
-   */
-  isShippingRequired: boolean;
   discount: UserCheckoutDetails_me_checkout_discount | null;
   discountName: string | null;
-  translatedDiscountName: string | null;
   voucherCode: string | null;
   /**
    * List of available payment gateways.

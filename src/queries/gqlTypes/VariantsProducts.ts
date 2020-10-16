@@ -7,18 +7,12 @@
 // GraphQL query operation: VariantsProducts
 // ====================================================
 
-export interface VariantsProducts_productVariants_edges_node_product_productType {
-  __typename: "ProductType";
-  isShippingRequired: boolean;
-}
-
 export interface VariantsProducts_productVariants_edges_node_product {
   __typename: "Product";
   /**
    * The ID of the object.
    */
   id: string;
-  productType: VariantsProducts_productVariants_edges_node_product_productType;
 }
 
 export interface VariantsProducts_productVariants_edges_node {

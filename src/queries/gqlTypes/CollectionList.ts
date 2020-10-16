@@ -17,8 +17,6 @@ export interface CollectionList_collections_edges_node {
   id: string;
   name: string;
   slug: string;
-  seoDescription: string | null;
-  seoTitle: string | null;
 }
 
 export interface CollectionList_collections_edges {

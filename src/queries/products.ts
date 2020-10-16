@@ -33,7 +33,7 @@ export const productList = gql`
 
 export const productDetails = gql`
   ${productFragment}
-  query ProductDetails($id: ID, $slug: String, $countryCode: CountryCode) {
+  query ProductDetails($id: ID, $slug: String) {
     product(id: $id, slug: $slug) {
       ...ProductDetails
     }
@@ -48,9 +48,6 @@ export const variantsProducts = gql`
           id
           product {
             id
-            productType {
-              isShippingRequired
-            }
           }
         }
       }

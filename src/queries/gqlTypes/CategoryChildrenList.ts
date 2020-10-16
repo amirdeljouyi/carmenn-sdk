@@ -15,8 +15,6 @@ export interface CategoryChildrenList_category_children_edges_node {
   id: string;
   name: string;
   slug: string;
-  seoDescription: string | null;
-  seoTitle: string | null;
 }
 
 export interface CategoryChildrenList_category_children_edges {

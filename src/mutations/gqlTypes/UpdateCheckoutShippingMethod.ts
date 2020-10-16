@@ -81,54 +81,6 @@ export interface UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_check
   net: UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_checkout_subtotalPrice_net;
 }
 
-export interface UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_checkout_billingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
-export interface UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_checkout_billingAddress {
-  __typename: "Address";
-  /**
-   * The ID of the object.
-   */
-  id: string;
-  firstName: string;
-  lastName: string;
-  companyName: string;
-  streetAddress1: string;
-  streetAddress2: string;
-  city: string;
-  postalCode: string;
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
-  /**
-   * Address is user's default shipping address.
-   */
-  isDefaultShippingAddress: boolean | null;
-}
-
-export interface UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_checkout_shippingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
 export interface UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_checkout_shippingAddress {
   __typename: "Address";
   /**
@@ -142,12 +94,7 @@ export interface UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_check
   streetAddress2: string;
   city: string;
   postalCode: string;
-
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
+  phone: string;
   /**
    * Address is user's default shipping address.
    */
@@ -424,7 +371,6 @@ export interface UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_check
    * The ID of the object.
    */
   id: string;
-  isShippingRequired: boolean;
 }
 
 export interface UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_checkout_lines_variant_product {
@@ -532,9 +478,6 @@ export interface UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_check
 
 export interface UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_checkout {
   __typename: "Checkout";
-  /**
-   * The checkout's token.
-   */
   token: any;
   /**
    * The ID of the object.
@@ -548,7 +491,6 @@ export interface UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_check
    * The price of the checkout before shipping, with taxes included.
    */
   subtotalPrice: UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_checkout_subtotalPrice | null;
-  billingAddress: UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_checkout_billingAddress | null;
   shippingAddress: UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_checkout_shippingAddress | null;
   /**
    * Email of a customer.
@@ -567,13 +509,8 @@ export interface UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_check
    * A list of checkout lines, each containing information about an item in the checkout.
    */
   lines: (UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_checkout_lines | null)[] | null;
-  /**
-   * Returns True, if checkout requires shipping.
-   */
-  isShippingRequired: boolean;
   discount: UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_checkout_discount | null;
   discountName: string | null;
-  translatedDiscountName: string | null;
   voucherCode: string | null;
   /**
    * List of available payment gateways.

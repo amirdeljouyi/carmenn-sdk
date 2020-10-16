@@ -26,18 +26,6 @@ export interface SetPassword_setPassword_errors {
   message: string | null;
 }
 
-export interface SetPassword_setPassword_user_defaultShippingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
 export interface SetPassword_setPassword_user_defaultShippingAddress {
   __typename: "Address";
   /**
@@ -51,63 +39,11 @@ export interface SetPassword_setPassword_user_defaultShippingAddress {
   streetAddress2: string;
   city: string;
   postalCode: string;
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
+  phone: string;
   /**
    * Address is user's default shipping address.
    */
   isDefaultShippingAddress: boolean | null;
-}
-
-export interface SetPassword_setPassword_user_defaultBillingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
-export interface SetPassword_setPassword_user_defaultBillingAddress {
-  __typename: "Address";
-  /**
-   * The ID of the object.
-   */
-  id: string;
-  firstName: string;
-  lastName: string;
-  companyName: string;
-  streetAddress1: string;
-  streetAddress2: string;
-  city: string;
-  postalCode: string;
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
-  /**
-   * Address is user's default shipping address.
-   */
-  isDefaultShippingAddress: boolean | null;
-}
-
-export interface SetPassword_setPassword_user_addresses_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
 }
 
 export interface SetPassword_setPassword_user_addresses {
@@ -123,11 +59,7 @@ export interface SetPassword_setPassword_user_addresses {
   streetAddress2: string;
   city: string;
   postalCode: string;
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
+  phone: string;
   /**
    * Address is user's default shipping address.
    */
@@ -143,9 +75,11 @@ export interface SetPassword_setPassword_user {
   email: string;
   firstName: string;
   lastName: string;
+  /**
+   * Designates whether the user can log into this admin site.
+   */
   isStaff: boolean;
   defaultShippingAddress: SetPassword_setPassword_user_defaultShippingAddress | null;
-  defaultBillingAddress: SetPassword_setPassword_user_defaultBillingAddress | null;
   /**
    * List of all user's addresses.
    */
@@ -171,15 +105,18 @@ export interface SetPassword_setPassword_accountErrors {
 
 export interface SetPassword_setPassword {
   __typename: "SetPassword";
-  errors: SetPassword_setPassword_errors[];
   /**
-   * JWT token, required to authenticate.
+   * List of errors that occurred executing the mutation.
    */
-  token: string | null;
+  errors: SetPassword_setPassword_errors[];
+  token: string;
   /**
    * A user instance.
    */
   user: SetPassword_setPassword_user | null;
+  /**
+   * List of errors that occurred executing the mutation.
+   */
   accountErrors: SetPassword_setPassword_accountErrors[];
 }
 

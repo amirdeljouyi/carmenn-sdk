@@ -98,55 +98,6 @@ export interface CreateCheckout_checkoutCreate_checkout_subtotalPrice {
   net: CreateCheckout_checkoutCreate_checkout_subtotalPrice_net;
 }
 
-export interface CreateCheckout_checkoutCreate_checkout_billingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
-export interface CreateCheckout_checkoutCreate_checkout_billingAddress {
-  __typename: "Address";
-  /**
-   * The ID of the object.
-   */
-  id: string;
-  firstName: string;
-  lastName: string;
-  companyName: string;
-  streetAddress1: string;
-  streetAddress2: string;
-  city: string;
-  postalCode: string;
-
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
-  /**
-   * Address is user's default shipping address.
-   */
-  isDefaultShippingAddress: boolean | null;
-}
-
-export interface CreateCheckout_checkoutCreate_checkout_shippingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
 export interface CreateCheckout_checkoutCreate_checkout_shippingAddress {
   __typename: "Address";
   /**
@@ -160,11 +111,7 @@ export interface CreateCheckout_checkoutCreate_checkout_shippingAddress {
   streetAddress2: string;
   city: string;
   postalCode: string;
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
+  phone: string;
   /**
    * Address is user's default shipping address.
    */
@@ -441,7 +388,6 @@ export interface CreateCheckout_checkoutCreate_checkout_lines_variant_product_pr
    * The ID of the object.
    */
   id: string;
-  isShippingRequired: boolean;
 }
 
 export interface CreateCheckout_checkoutCreate_checkout_lines_variant_product {
@@ -549,9 +495,6 @@ export interface CreateCheckout_checkoutCreate_checkout_availablePaymentGateways
 
 export interface CreateCheckout_checkoutCreate_checkout {
   __typename: "Checkout";
-  /**
-   * The checkout's token.
-   */
   token: any;
   /**
    * The ID of the object.
@@ -565,7 +508,6 @@ export interface CreateCheckout_checkoutCreate_checkout {
    * The price of the checkout before shipping, with taxes included.
    */
   subtotalPrice: CreateCheckout_checkoutCreate_checkout_subtotalPrice | null;
-  billingAddress: CreateCheckout_checkoutCreate_checkout_billingAddress | null;
   shippingAddress: CreateCheckout_checkoutCreate_checkout_shippingAddress | null;
   /**
    * Email of a customer.
@@ -584,13 +526,8 @@ export interface CreateCheckout_checkoutCreate_checkout {
    * A list of checkout lines, each containing information about an item in the checkout.
    */
   lines: (CreateCheckout_checkoutCreate_checkout_lines | null)[] | null;
-  /**
-   * Returns True, if checkout requires shipping.
-   */
-  isShippingRequired: boolean;
   discount: CreateCheckout_checkoutCreate_checkout_discount | null;
   discountName: string | null;
-  translatedDiscountName: string | null;
   voucherCode: string | null;
   /**
    * List of available payment gateways.

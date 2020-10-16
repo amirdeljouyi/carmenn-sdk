@@ -7,18 +7,6 @@
 // GraphQL query operation: UserDetails
 // ====================================================
 
-export interface UserDetails_me_defaultShippingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
 export interface UserDetails_me_defaultShippingAddress {
   __typename: "Address";
   /**
@@ -32,63 +20,11 @@ export interface UserDetails_me_defaultShippingAddress {
   streetAddress2: string;
   city: string;
   postalCode: string;
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
+  phone: string;
   /**
    * Address is user's default shipping address.
    */
   isDefaultShippingAddress: boolean | null;
-}
-
-export interface UserDetails_me_defaultBillingAddress_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
-}
-
-export interface UserDetails_me_defaultBillingAddress {
-  __typename: "Address";
-  /**
-   * The ID of the object.
-   */
-  id: string;
-  firstName: string;
-  lastName: string;
-  companyName: string;
-  streetAddress1: string;
-  streetAddress2: string;
-  city: string;
-  postalCode: string;
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
-  /**
-   * Address is user's default shipping address.
-   */
-  isDefaultShippingAddress: boolean | null;
-}
-
-export interface UserDetails_me_addresses_country {
-  __typename: "CountryDisplay";
-  /**
-   * Country code.
-   */
-  code: string;
-  /**
-   * Country name.
-   */
-  country: string;
 }
 
 export interface UserDetails_me_addresses {
@@ -104,11 +40,7 @@ export interface UserDetails_me_addresses {
   streetAddress2: string;
   city: string;
   postalCode: string;
-  phone: string | null;
-  /**
-   * Address is user's default billing address.
-   */
-  isDefaultBillingAddress: boolean | null;
+  phone: string;
   /**
    * Address is user's default shipping address.
    */
@@ -124,9 +56,11 @@ export interface UserDetails_me {
   email: string;
   firstName: string;
   lastName: string;
+  /**
+   * Designates whether the user can log into this admin site.
+   */
   isStaff: boolean;
   defaultShippingAddress: UserDetails_me_defaultShippingAddress | null;
-  defaultBillingAddress: UserDetails_me_defaultBillingAddress | null;
   /**
    * List of all user's addresses.
    */

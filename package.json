@@ -1,8 +1,8 @@
 {
-  "name": "@saleor/sdk",
+  "name": "@carmenn/sdk",
   "version": "0.1.5",
   "description": "This package contains all queries and mutations that are used in our sample storefront. It can be used for semi-custom or fully-custom (with ability to extend existing queries) storefront solutions.",
-  "homepage": "https://getsaleor.com/",
+  "homepage": "carmenn.ir/",
   "main": "./lib/index.js",
   "license": "BSD-3-Clause",
   "engines": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/mirumee/saleor-sdk.git"
+    "url": "git://github.com/amirdeljouyi/carmenn-sdk.git"
   },
   "scripts": {
     "build": "tsc",
@@ -31,7 +31,7 @@
     "apollo",
     "graphql"
   ],
-  "author": "Mirumee",
+  "author": "Amir Deljouyi",
   "dependencies": {
     "apollo-cache": "^1.3.5",
     "apollo-cache-inmemory": "^1.6.6",
