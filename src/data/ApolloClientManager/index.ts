@@ -128,6 +128,7 @@ export class ApolloClientManager {
   registerAccount = async (
     email: string,
     password: string,
+    phone: string,
     redirectUrl: string
   ) => {
     const { data, errors } = await this.client.mutate<
@@ -139,6 +140,7 @@ export class ApolloClientManager {
       variables: {
         email,
         password,
+        phone,
         redirectUrl,
       },
     });

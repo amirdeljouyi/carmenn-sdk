@@ -10,7 +10,7 @@ import { Config } from "../../types";
 import { CREDENTIAL_API_EXISTS } from "../../consts";
 
 export const BROWSER_NO_CREDENTIAL_API_MESSAGE =
-  "Saleor SDK is unable to use browser Credential Management API.";
+  "s is unable to use browser Credential Management API.";
 
 export class AuthAPI extends ErrorListener {
   /**
@@ -103,11 +103,13 @@ export class AuthAPI extends ErrorListener {
    * Tries to register a user account with given email and password.
    * @param email Email used for new account.
    * @param password Password used for new account.
+   * @param phone Phone used for new account.
    * @param redirectUrl URL used for redirection.
    */
   registerAccount = async (
     email: string,
     password: string,
+    phone: string,
     redirectUrl: string
   ): PromiseRunResponse<DataErrorAuthTypes> => {
     const { data, dataError } = await this.jobsManager.run(
@@ -116,6 +118,7 @@ export class AuthAPI extends ErrorListener {
       {
         email,
         password,
+        phone,
         redirectUrl,
       }
     );

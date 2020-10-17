@@ -18,10 +18,16 @@ export const registerAccount = gql`
   mutation RegisterAccount(
     $email: String!
     $password: String!
+    $phone: String!
     $redirectUrl: String!
   ) {
     accountRegister(
-      input: { email: $email, password: $password, redirectUrl: $redirectUrl }
+      input: {
+        email: $email
+        password: $password
+        phone: $phone
+        redirectUrl: $redirectUrl
+      }
     ) {
       accountErrors {
         field
