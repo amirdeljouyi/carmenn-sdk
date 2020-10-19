@@ -211,8 +211,29 @@ export interface ProductDetails_product_pricing {
   priceRange: ProductDetails_product_pricing_priceRange | null;
 }
 
+export interface ProductDetails_product_categories_backgroundImage {
+  __typename: "Image";
+  /**
+   * Alt text for an image.
+   */
+  alt: string | null;
+  /**
+   * The URL of the image.
+   */
+  url: string;
+}
+
 export interface ProductDetails_product_categories {
-  __typename: "CategoryCountableConnection";
+  __typename: "Category";
+  /**
+   * The ID of the object.
+   */
+  id: string;
+  name: string;
+  slug: string;
+  backgroundImage: ProductDetails_product_categories_backgroundImage | null;
+  description: string;
+  descriptionJson: any;
 }
 
 export interface ProductDetails_product_images {
@@ -368,6 +389,18 @@ export interface ProductDetails_product_variants_pricing {
   price: ProductDetails_product_variants_pricing_price | null;
 }
 
+export interface ProductDetails_product_variants_color {
+  __typename: "VariantColor";
+  /**
+   * Color name
+   */
+  name: string;
+  /**
+   * Hex of the color
+   */
+  hex: string;
+}
+
 export interface ProductDetails_product_variants_attributes_attribute {
   __typename: "Attribute";
   /**
@@ -437,9 +470,25 @@ export interface ProductDetails_product_variants {
    */
   pricing: ProductDetails_product_variants_pricing | null;
   /**
+   * Color of this ProductVariant
+   */
+  color: ProductDetails_product_variants_color | null;
+  /**
    * List of attributes assigned to this variant.
    */
   attributes: ProductDetails_product_variants_attributes[];
+}
+
+export interface ProductDetails_product_colors {
+  __typename: "VariantColor";
+  /**
+   * Color name
+   */
+  name: string;
+  /**
+   * Hex of the color
+   */
+  hex: string;
 }
 
 export interface ProductDetails_product {
@@ -463,7 +512,10 @@ export interface ProductDetails_product {
    */
   pricing: ProductDetails_product_pricing | null;
   descriptionJson: any;
-  categories: ProductDetails_product_categories;
+  /**
+   * List of categories for the product.
+   */
+  categories: (ProductDetails_product_categories | null)[] | null;
   /**
    * List of images for the product.
    */
@@ -480,6 +532,14 @@ export interface ProductDetails_product {
    * Whether the product is in stock and visible or not.
    */
   isAvailable: boolean | null;
+  /**
+   * List of colors for the product.
+   */
+  colors: (ProductDetails_product_colors | null)[] | null;
+  /**
+   * Whether the product have color or not.
+   */
+  haveColor: boolean | null;
 }
 
 export interface ProductDetails {

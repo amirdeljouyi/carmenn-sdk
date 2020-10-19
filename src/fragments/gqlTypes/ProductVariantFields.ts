@@ -108,6 +108,18 @@ export interface ProductVariantFields_pricing {
   price: ProductVariantFields_pricing_price | null;
 }
 
+export interface ProductVariantFields_color {
+  __typename: "VariantColor";
+  /**
+   * Color name
+   */
+  name: string;
+  /**
+   * Hex of the color
+   */
+  hex: string;
+}
+
 export interface ProductVariantFields_attributes_attribute {
   __typename: "Attribute";
   /**
@@ -176,6 +188,10 @@ export interface ProductVariantFields {
    * Lists the storefront variant's pricing, the current price and discounts, only meant for displaying.
    */
   pricing: ProductVariantFields_pricing | null;
+  /**
+   * Color of this ProductVariant
+   */
+  color: ProductVariantFields_color | null;
   /**
    * List of attributes assigned to this variant.
    */

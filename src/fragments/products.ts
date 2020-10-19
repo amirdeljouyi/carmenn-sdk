@@ -54,6 +54,10 @@ export const productVariantFragment = gql`
         ...Price
       }
     }
+    color {
+      name
+      hex
+    }
     attributes {
       attribute {
         id
@@ -118,5 +122,10 @@ export const productFragment = gql`
       ...ProductVariantFields
     }
     isAvailable
+    colors {
+      name
+      hex
+    }
+    haveColor
   }
 `;
