@@ -48,8 +48,6 @@ export class SaleorState extends NamedObservable<StateItems> {
 
   selectedShippingAddressId?: string;
 
-  selectedBillingAddressId?: string;
-
   payment?: IPaymentModel | null;
 
   summaryPrices?: ISaleorStateSummeryPrices;

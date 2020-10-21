@@ -14,8 +14,6 @@ import {
   ProvideCheckoutJobInput,
   CreateCheckoutJobInput,
   SetShippingAddressJobInput,
-  SetBillingAddressJobInput,
-  SetBillingAddressWithEmailJobInput,
 } from "./types";
 import { JobsHandler } from "../JobsHandler";
 
@@ -55,6 +53,7 @@ class CheckoutJobs extends JobsHandler<{}> {
         },
       };
     }
+
     this.localStorageHandler.setCheckout(data || checkout);
 
     return {
@@ -67,14 +66,11 @@ class CheckoutJobs extends JobsHandler<{}> {
     lines,
     shippingAddress,
     selectedShippingAddressId,
-    billingAddress,
-    selectedBillingAddressId,
   }: CreateCheckoutJobInput): PromiseCheckoutJobRunResponse => {
     const { data, error } = await this.apolloClientManager.createCheckout(
       email,
       lines,
-      shippingAddress,
-      billingAddress
+      shippingAddress
     );
 
     if (error) {
@@ -92,7 +88,6 @@ class CheckoutJobs extends JobsHandler<{}> {
 
     this.localStorageHandler.setCheckout({
       ...data,
-      selectedBillingAddressId,
       selectedShippingAddressId,
     });
     return {
@@ -126,79 +121,9 @@ class CheckoutJobs extends JobsHandler<{}> {
     this.localStorageHandler.setCheckout({
       ...checkout,
       availableShippingMethods: data?.availableShippingMethods,
-      billingAsShipping: false,
       email: data?.email,
       selectedShippingAddressId,
       shippingAddress: data?.shippingAddress,
-    });
-    return { data };
-  };
-
-  setBillingAddress = async ({
-    checkoutId,
-    billingAddress,
-    billingAsShipping,
-    selectedBillingAddressId,
-  }: SetBillingAddressJobInput): PromiseCheckoutJobRunResponse => {
-    const checkout = LocalStorageHandler.getCheckout();
-
-    const { data, error } = await this.apolloClientManager.setBillingAddress(
-      billingAddress,
-      checkoutId
-    );
-
-    if (error) {
-      return {
-        dataError: {
-          error,
-          type: DataErrorCheckoutTypes.SET_BILLING_ADDRESS,
-        },
-      };
-    }
-
-    this.localStorageHandler.setCheckout({
-      ...checkout,
-      availablePaymentGateways: data?.availablePaymentGateways,
-      billingAddress: data?.billingAddress,
-      billingAsShipping: !!billingAsShipping,
-      selectedBillingAddressId,
-    });
-    return { data };
-  };
-
-  setBillingAddressWithEmail = async ({
-    checkoutId,
-    email,
-    billingAddress,
-    selectedBillingAddressId,
-  }: SetBillingAddressWithEmailJobInput): PromiseCheckoutJobRunResponse => {
-    const checkout = LocalStorageHandler.getCheckout();
-
-    const {
-      data,
-      error,
-    } = await this.apolloClientManager.setBillingAddressWithEmail(
-      billingAddress,
-      email,
-      checkoutId
-    );
-
-    if (error) {
-      return {
-        dataError: {
-          error,
-          type: DataErrorCheckoutTypes.SET_BILLING_ADDRESS,
-        },
-      };
-    }
-
-    this.localStorageHandler.setCheckout({
-      ...checkout,
-      availablePaymentGateways: data?.availablePaymentGateways,
-      billingAddress: data?.billingAddress,
-      billingAsShipping: false,
-      email: data?.email,
-      selectedBillingAddressId,
     });
     return { data };
   };
@@ -290,7 +215,6 @@ class CheckoutJobs extends JobsHandler<{}> {
     amount,
     gateway,
     token,
-    billingAddress,
     creditCard,
     returnUrl,
   }: CreatePaymentJobInput): PromiseCheckoutJobRunResponse => {
@@ -298,7 +222,6 @@ class CheckoutJobs extends JobsHandler<{}> {
 
     const { data, error } = await this.apolloClientManager.createPayment({
       amount,
-      billingAddress,
       checkoutId,
       gateway,
       returnUrl,

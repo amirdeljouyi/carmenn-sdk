@@ -345,6 +345,18 @@ export interface UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_check
   values: (UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_checkout_lines_variant_attributes_values | null)[];
 }
 
+export interface UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_checkout_lines_variant_color {
+  __typename: "VariantColor";
+  /**
+   * Color name
+   */
+  name: string;
+  /**
+   * Hex of the color
+   */
+  hex: string;
+}
+
 export interface UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_checkout_lines_variant_product_thumbnail {
   __typename: "Image";
   /**
@@ -415,6 +427,10 @@ export interface UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_check
    * List of attributes assigned to this variant.
    */
   attributes: UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_checkout_lines_variant_attributes[];
+  /**
+   * Color of this ProductVariant
+   */
+  color: UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_checkout_lines_variant_color | null;
   product: UpdateCheckoutShippingMethod_checkoutShippingMethodUpdate_checkout_lines_variant_product;
 }
 

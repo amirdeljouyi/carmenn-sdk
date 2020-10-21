@@ -38,59 +38,6 @@ export const createCheckoutMutation = gql`
   }
 `;
 
-export const updateCheckoutBillingAddressWithEmailMutation = gql`
-  ${checkoutFragment}
-  ${checkoutErrorFragment}
-  mutation UpdateCheckoutBillingAddressWithEmail(
-    $checkoutId: ID!
-    $billingAddress: AddressInput!
-    $email: String!
-  ) {
-    checkoutBillingAddressUpdate(
-      checkoutId: $checkoutId
-      billingAddress: $billingAddress
-    ) {
-      errors: checkoutErrors {
-        ...CheckoutError
-      }
-      checkout {
-        ...Checkout
-      }
-    }
-    checkoutEmailUpdate(checkoutId: $checkoutId, email: $email) {
-      checkout {
-        ...Checkout
-      }
-      errors: checkoutErrors {
-        code
-        field
-        message
-      }
-    }
-  }
-`;
-
-export const updateCheckoutBillingAddressMutation = gql`
-  ${checkoutFragment}
-  ${checkoutErrorFragment}
-  mutation UpdateCheckoutBillingAddress(
-    $checkoutId: ID!
-    $billingAddress: AddressInput!
-  ) {
-    checkoutBillingAddressUpdate(
-      checkoutId: $checkoutId
-      billingAddress: $billingAddress
-    ) {
-      errors: checkoutErrors {
-        ...CheckoutError
-      }
-      checkout {
-        ...Checkout
-      }
-    }
-  }
-`;
-
 export const updateCheckoutShippingAddressMutation = gql`
   ${checkoutFragment}
   ${checkoutErrorFragment}

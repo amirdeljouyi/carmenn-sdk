@@ -1,12 +1,8 @@
 import { ApolloError } from "apollo-client";
 
-import { ICheckoutAddress } from "../../helpers/LocalStorageHandler";
-
 export enum PendingSaveItems {
   UPDATE_CART = "updateCart",
-  BILLING_ADDRESS = "billingAddress",
   SHIPPING_ADDRESS = "shippingAddress",
-  SHIPPING_AS_BILLING_ADDRESS = "shippingAsBillingAddress",
 }
 
 export interface ApolloErrorWithUserInput extends ApolloError {
@@ -33,7 +29,6 @@ export interface CreatePaymentInput {
   amount: number;
   checkoutId: string;
   gateway: string;
-  billingAddress: ICheckoutAddress;
   token?: string;
   returnUrl?: string;
 }

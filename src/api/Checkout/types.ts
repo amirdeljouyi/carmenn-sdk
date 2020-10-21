@@ -50,7 +50,6 @@ export interface ICheckout {
   email?: string;
   shippingAddress?: IAddress | null;
   shippingMethod?: IShippingMethod | null;
-  billingAddress?: IAddress | null;
 }
 
 export enum FunctionErrorCheckoutTypes {

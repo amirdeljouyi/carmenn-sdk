@@ -10,8 +10,6 @@ export interface CreateCheckoutJobInput {
   lines: Array<{ variantId: string; quantity: number }>;
   shippingAddress?: ICheckoutAddress;
   selectedShippingAddressId?: string;
-  billingAddress?: ICheckoutAddress;
-  selectedBillingAddressId?: string;
 }
 
 export interface SetShippingAddressJobInput {
@@ -19,20 +17,6 @@ export interface SetShippingAddressJobInput {
   shippingAddress: ICheckoutAddress;
   email: string;
   selectedShippingAddressId?: string;
-}
-
-export interface SetBillingAddressJobInput {
-  checkoutId: string;
-  billingAddress: ICheckoutAddress;
-  billingAsShipping?: boolean;
-  selectedBillingAddressId?: string;
-}
-
-export interface SetBillingAddressWithEmailJobInput {
-  checkoutId: string;
-  email: string;
-  billingAddress: ICheckoutAddress;
-  selectedBillingAddressId?: string;
 }
 
 export interface SetShippingMethodJobInput {
@@ -55,7 +39,6 @@ export interface CreatePaymentJobInput {
   amount: number;
   gateway: string;
   token?: string;
-  billingAddress: ICheckoutAddress;
   creditCard?: ICreditCard;
   returnUrl?: string;
 }

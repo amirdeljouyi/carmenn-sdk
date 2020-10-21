@@ -57,6 +57,10 @@ export const checkoutProductVariantFragment = gql`
         value: name
       }
     }
+    color {
+      name
+      hex
+    }
     product {
       id
       name

@@ -345,6 +345,18 @@ export interface CreateCheckoutPayment_checkoutPaymentCreate_checkout_lines_vari
   values: (CreateCheckoutPayment_checkoutPaymentCreate_checkout_lines_variant_attributes_values | null)[];
 }
 
+export interface CreateCheckoutPayment_checkoutPaymentCreate_checkout_lines_variant_color {
+  __typename: "VariantColor";
+  /**
+   * Color name
+   */
+  name: string;
+  /**
+   * Hex of the color
+   */
+  hex: string;
+}
+
 export interface CreateCheckoutPayment_checkoutPaymentCreate_checkout_lines_variant_product_thumbnail {
   __typename: "Image";
   /**
@@ -415,6 +427,10 @@ export interface CreateCheckoutPayment_checkoutPaymentCreate_checkout_lines_vari
    * List of attributes assigned to this variant.
    */
   attributes: CreateCheckoutPayment_checkoutPaymentCreate_checkout_lines_variant_attributes[];
+  /**
+   * Color of this ProductVariant
+   */
+  color: CreateCheckoutPayment_checkoutPaymentCreate_checkout_lines_variant_color | null;
   product: CreateCheckoutPayment_checkoutPaymentCreate_checkout_lines_variant_product;
 }
 

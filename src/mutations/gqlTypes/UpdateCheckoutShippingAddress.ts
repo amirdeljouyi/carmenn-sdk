@@ -362,6 +362,18 @@ export interface UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_che
   values: (UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_checkout_lines_variant_attributes_values | null)[];
 }
 
+export interface UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_checkout_lines_variant_color {
+  __typename: "VariantColor";
+  /**
+   * Color name
+   */
+  name: string;
+  /**
+   * Hex of the color
+   */
+  hex: string;
+}
+
 export interface UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_checkout_lines_variant_product_thumbnail {
   __typename: "Image";
   /**
@@ -432,6 +444,10 @@ export interface UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_che
    * List of attributes assigned to this variant.
    */
   attributes: UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_checkout_lines_variant_attributes[];
+  /**
+   * Color of this ProductVariant
+   */
+  color: UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_checkout_lines_variant_color | null;
   product: UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_checkout_lines_variant_product;
 }
 
@@ -880,6 +896,18 @@ export interface UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout_line
   values: (UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout_lines_variant_attributes_values | null)[];
 }
 
+export interface UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout_lines_variant_color {
+  __typename: "VariantColor";
+  /**
+   * Color name
+   */
+  name: string;
+  /**
+   * Hex of the color
+   */
+  hex: string;
+}
+
 export interface UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout_lines_variant_product_thumbnail {
   __typename: "Image";
   /**
@@ -950,6 +978,10 @@ export interface UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout_line
    * List of attributes assigned to this variant.
    */
   attributes: UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout_lines_variant_attributes[];
+  /**
+   * Color of this ProductVariant
+   */
+  color: UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout_lines_variant_color | null;
   product: UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout_lines_variant_product;
 }
 

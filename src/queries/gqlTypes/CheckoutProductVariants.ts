@@ -135,6 +135,18 @@ export interface CheckoutProductVariants_productVariants_edges_node_attributes {
   values: (CheckoutProductVariants_productVariants_edges_node_attributes_values | null)[];
 }
 
+export interface CheckoutProductVariants_productVariants_edges_node_color {
+  __typename: "VariantColor";
+  /**
+   * Color name
+   */
+  name: string;
+  /**
+   * Hex of the color
+   */
+  hex: string;
+}
+
 export interface CheckoutProductVariants_productVariants_edges_node_product_thumbnail {
   __typename: "Image";
   /**
@@ -205,6 +217,10 @@ export interface CheckoutProductVariants_productVariants_edges_node {
    * List of attributes assigned to this variant.
    */
   attributes: CheckoutProductVariants_productVariants_edges_node_attributes[];
+  /**
+   * Color of this ProductVariant
+   */
+  color: CheckoutProductVariants_productVariants_edges_node_color | null;
   product: CheckoutProductVariants_productVariants_edges_node_product;
 }
 

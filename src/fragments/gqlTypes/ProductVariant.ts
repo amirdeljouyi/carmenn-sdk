@@ -135,6 +135,18 @@ export interface ProductVariant_attributes {
   values: (ProductVariant_attributes_values | null)[];
 }
 
+export interface ProductVariant_color {
+  __typename: "VariantColor";
+  /**
+   * Color name
+   */
+  name: string;
+  /**
+   * Hex of the color
+   */
+  hex: string;
+}
+
 export interface ProductVariant_product_thumbnail {
   __typename: "Image";
   /**
@@ -205,5 +217,9 @@ export interface ProductVariant {
    * List of attributes assigned to this variant.
    */
   attributes: ProductVariant_attributes[];
+  /**
+   * Color of this ProductVariant
+   */
+  color: ProductVariant_color | null;
   product: ProductVariant_product;
 }

@@ -4,6 +4,7 @@ import {
   Checkout_lines_variant_pricing,
   Checkout_lines_variant_product,
   Checkout_availablePaymentGateways,
+  Checkout_lines_variant_color,
 } from "../../fragments/gqlTypes/Checkout";
 import { Payment_total } from "../../fragments/gqlTypes/Payment";
 import { IQueuedJobs } from "../../jobs/QueuedJobs";
@@ -15,6 +16,7 @@ export enum LocalStorageItems {
   CHECKOUT = "data_checkout",
   PAYMENT = "data_payment",
 }
+
 export enum LocalStorageEvents {
   CLEAR = "clear",
 }
@@ -33,6 +35,7 @@ export interface ICheckoutModelLineVariant {
   product?: Checkout_lines_variant_product;
   isAvailable?: boolean | null;
   attributes?: Checkout_lines_variant_attributes[];
+  color?: Checkout_lines_variant_color | null;
 }
 
 export interface ICheckoutModelLine {
@@ -104,10 +107,7 @@ export interface ICheckoutModel {
   token?: any;
   email?: string;
   shippingAddress?: ICheckoutAddress | null;
-  billingAddress?: ICheckoutAddress | null;
   selectedShippingAddressId?: string;
-  selectedBillingAddressId?: string;
-  billingAsShipping?: boolean;
   promoCodeDiscount?: ICheckoutModelPromoCodeDiscount;
   lines?: ICheckoutModelLine[] | null;
   availableShippingMethods?: Checkout_availableShippingMethods[];

@@ -175,7 +175,6 @@ export interface CheckoutCreateInput {
   lines: (CheckoutLineInput | null)[];
   email?: string | null;
   shippingAddress?: AddressInput | null;
-  billingAddress?: AddressInput | null;
 }
 
 export interface CheckoutLineInput {
@@ -203,7 +202,6 @@ export interface PaymentInput {
   gateway: string;
   token: string;
   amount?: any | null;
-  billingAddress?: AddressInput | null;
 }
 
 export interface PriceRangeInput {

@@ -33,11 +33,7 @@ export class SaleorCheckoutAPI extends ErrorListener {
 
   promoCodeDiscount?: IPromoCodeDiscount;
 
-  billingAsShipping?: boolean;
-
   selectedShippingAddressId?: string;
-
-  selectedBillingAddressId?: string;
 
   availableShippingMethods?: IAvailableShippingMethods;
 
@@ -64,17 +60,13 @@ export class SaleorCheckoutAPI extends ErrorListener {
           token,
           email,
           shippingAddress,
-          billingAddress,
           selectedShippingAddressId,
-          selectedBillingAddressId,
-          billingAsShipping,
           availablePaymentGateways,
           availableShippingMethods,
           shippingMethod,
           promoCodeDiscount,
         } = checkout || {};
         this.checkout = {
-          billingAddress,
           email,
           id,
           shippingAddress,
@@ -82,10 +74,8 @@ export class SaleorCheckoutAPI extends ErrorListener {
           token,
         };
         this.selectedShippingAddressId = selectedShippingAddressId;
-        this.selectedBillingAddressId = selectedBillingAddressId;
         this.availablePaymentGateways = availablePaymentGateways;
         this.availableShippingMethods = availableShippingMethods;
-        this.billingAsShipping = billingAsShipping;
         this.promoCodeDiscount = {
           discountName: promoCodeDiscount?.discountName,
           voucherCode: promoCodeDiscount?.voucherCode,
@@ -165,41 +155,6 @@ export class SaleorCheckoutAPI extends ErrorListener {
           "You need to add items to cart before setting shipping address."
         ),
         type: FunctionErrorCheckoutTypes.ITEMS_NOT_ADDED_TO_CART,
-      },
-      pending: false,
-    };
-  };
-
-  setBillingAsShippingAddress = async (): PromiseRunResponse<
-    DataErrorCheckoutTypes,
-    FunctionErrorCheckoutTypes
-  > => {
-    const checkoutId = this.saleorState.checkout?.id;
-
-    if (checkoutId && this.checkout?.shippingAddress) {
-      const { data, dataError } = await this.jobsManager.run(
-        "checkout",
-        "setBillingAddress",
-        {
-          billingAddress: this.checkout.shippingAddress,
-          billingAsShipping: true,
-          checkoutId,
-          selectedBillingAddressId: this.checkout?.shippingAddress.id,
-        }
-      );
-
-      return {
-        data,
-        dataError,
-        pending: false,
-      };
-    }
-    return {
-      functionError: {
-        error: new Error(
-          "You need to set shipping address before setting billing address."
-        ),
-        type: FunctionErrorCheckoutTypes.SHIPPING_ADDRESS_NOT_SET,
       },
       pending: false,
     };
@@ -293,22 +248,15 @@ export class SaleorCheckoutAPI extends ErrorListener {
 
   createPayment = async (input: CreatePaymentInput): CheckoutResponse => {
     const checkoutId = this.saleorState.checkout?.id;
-    const billingAddress = this.saleorState.checkout?.billingAddress;
     const amount = this.saleorState.summaryPrices?.totalPrice?.gross.amount;
 
-    if (
-      checkoutId &&
-      billingAddress &&
-      amount !== null &&
-      amount !== undefined
-    ) {
+    if (checkoutId && amount !== null && amount !== undefined) {
       const { data, dataError } = await this.jobsManager.run(
         "checkout",
         "createPayment",
         {
           ...input,
           amount,
-          billingAddress,
           checkoutId,
         }
       );

@@ -171,6 +171,18 @@ export interface CheckoutLine_variant_attributes {
   values: (CheckoutLine_variant_attributes_values | null)[];
 }
 
+export interface CheckoutLine_variant_color {
+  __typename: "VariantColor";
+  /**
+   * Color name
+   */
+  name: string;
+  /**
+   * Hex of the color
+   */
+  hex: string;
+}
+
 export interface CheckoutLine_variant_product_thumbnail {
   __typename: "Image";
   /**
@@ -241,6 +253,10 @@ export interface CheckoutLine_variant {
    * List of attributes assigned to this variant.
    */
   attributes: CheckoutLine_variant_attributes[];
+  /**
+   * Color of this ProductVariant
+   */
+  color: CheckoutLine_variant_color | null;
   product: CheckoutLine_variant_product;
 }
 

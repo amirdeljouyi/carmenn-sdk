@@ -53,14 +53,6 @@ import {
   RefreshTokenVariables,
 } from "../../mutations/gqlTypes/RefreshToken";
 import {
-  UpdateCheckoutBillingAddress,
-  UpdateCheckoutBillingAddressVariables,
-} from "../../mutations/gqlTypes/UpdateCheckoutBillingAddress";
-import {
-  UpdateCheckoutBillingAddressWithEmail,
-  UpdateCheckoutBillingAddressWithEmailVariables,
-} from "../../mutations/gqlTypes/UpdateCheckoutBillingAddressWithEmail";
-import {
   UpdateCheckoutLine,
   UpdateCheckoutLineVariables,
 } from "../../mutations/gqlTypes/UpdateCheckoutLine";
@@ -422,6 +414,7 @@ export class ApolloClientManager {
             totalPrice,
             variant: {
               attributes: edge.node.attributes,
+              color: edge.node.color,
               id: edge.node.id,
               isAvailable: edge.node.isAvailable,
               name: edge.node.name,
@@ -468,22 +461,11 @@ export class ApolloClientManager {
   createCheckout = async (
     email: string,
     lines: Array<{ variantId: string; quantity: number }>,
-    shippingAddress?: ICheckoutAddress,
-    billingAddress?: ICheckoutAddress
+    shippingAddress?: ICheckoutAddress
   ) => {
     try {
       const variables = {
         checkoutInput: {
-          billingAddress: billingAddress && {
-            city: billingAddress.city,
-            companyName: billingAddress.companyName,
-            firstName: billingAddress.firstName,
-            lastName: billingAddress.lastName,
-            phone: billingAddress.phone,
-            postalCode: billingAddress.postalCode,
-            streetAddress1: billingAddress.streetAddress1,
-            streetAddress2: billingAddress.streetAddress2,
-          },
           email,
           lines,
           shippingAddress: shippingAddress && {
@@ -624,116 +606,6 @@ export class ApolloClientManager {
         return {
           data: this.constructCheckoutModel(
             data.checkoutShippingAddressUpdate.checkout
-          ),
-        };
-      }
-      return {};
-    } catch (error) {
-      return {
-        error,
-      };
-    }
-  };
-
-  setBillingAddress = async (
-    billingAddress: ICheckoutAddress,
-    checkoutId: string
-  ) => {
-    try {
-      const variables = {
-        billingAddress: {
-          city: billingAddress.city,
-          companyName: billingAddress.companyName,
-          firstName: billingAddress.firstName,
-          lastName: billingAddress.lastName,
-          phone: billingAddress.phone,
-          postalCode: billingAddress.postalCode,
-          streetAddress1: billingAddress.streetAddress1,
-          streetAddress2: billingAddress.streetAddress2,
-        },
-        checkoutId,
-      };
-      const { data, errors } = await this.client.mutate<
-        UpdateCheckoutBillingAddress,
-        UpdateCheckoutBillingAddressVariables
-      >({
-        mutation: CheckoutMutations.updateCheckoutBillingAddressMutation,
-        variables,
-      });
-
-      if (errors?.length) {
-        return {
-          error: errors,
-        };
-      }
-      if (data?.checkoutBillingAddressUpdate?.errors.length) {
-        return {
-          error: data?.checkoutBillingAddressUpdate?.errors,
-        };
-      }
-      if (data?.checkoutBillingAddressUpdate?.checkout) {
-        return {
-          data: this.constructCheckoutModel(
-            data.checkoutBillingAddressUpdate.checkout
-          ),
-        };
-      }
-      return {};
-    } catch (error) {
-      return {
-        error,
-      };
-    }
-  };
-
-  setBillingAddressWithEmail = async (
-    billingAddress: ICheckoutAddress,
-    email: string,
-    checkoutId: string
-  ) => {
-    try {
-      const variables = {
-        billingAddress: {
-          city: billingAddress.city,
-          companyName: billingAddress.companyName,
-          firstName: billingAddress.firstName,
-          lastName: billingAddress.lastName,
-          phone: billingAddress.phone,
-          postalCode: billingAddress.postalCode,
-          streetAddress1: billingAddress.streetAddress1,
-          streetAddress2: billingAddress.streetAddress2,
-        },
-        checkoutId,
-        email,
-      };
-      const { data, errors } = await this.client.mutate<
-        UpdateCheckoutBillingAddressWithEmail,
-        UpdateCheckoutBillingAddressWithEmailVariables
-      >({
-        mutation:
-          CheckoutMutations.updateCheckoutBillingAddressWithEmailMutation,
-        variables,
-      });
-
-      if (errors?.length) {
-        return {
-          error: errors,
-        };
-      }
-      if (data?.checkoutEmailUpdate?.errors.length) {
-        return {
-          error: data?.checkoutEmailUpdate?.errors,
-        };
-      }
-      if (data?.checkoutBillingAddressUpdate?.errors.length) {
-        return {
-          error: data?.checkoutBillingAddressUpdate?.errors,
-        };
-      }
-      if (data?.checkoutBillingAddressUpdate?.checkout) {
-        return {
-          data: this.constructCheckoutModel(
-            data.checkoutBillingAddressUpdate.checkout
           ),
         };
       }
@@ -974,6 +846,7 @@ export class ApolloClientManager {
           totalPrice: item?.totalPrice,
           variant: {
             attributes: itemVariant?.attributes,
+            color: itemVariant?.color,
             id: itemVariant!.id,
             isAvailable: itemVariant?.isAvailable,
             name: itemVariant?.name,

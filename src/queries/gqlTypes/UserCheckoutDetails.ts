@@ -343,6 +343,18 @@ export interface UserCheckoutDetails_me_checkout_lines_variant_attributes {
   values: (UserCheckoutDetails_me_checkout_lines_variant_attributes_values | null)[];
 }
 
+export interface UserCheckoutDetails_me_checkout_lines_variant_color {
+  __typename: "VariantColor";
+  /**
+   * Color name
+   */
+  name: string;
+  /**
+   * Hex of the color
+   */
+  hex: string;
+}
+
 export interface UserCheckoutDetails_me_checkout_lines_variant_product_thumbnail {
   __typename: "Image";
   /**
@@ -413,6 +425,10 @@ export interface UserCheckoutDetails_me_checkout_lines_variant {
    * List of attributes assigned to this variant.
    */
   attributes: UserCheckoutDetails_me_checkout_lines_variant_attributes[];
+  /**
+   * Color of this ProductVariant
+   */
+  color: UserCheckoutDetails_me_checkout_lines_variant_color | null;
   product: UserCheckoutDetails_me_checkout_lines_variant_product;
 }
 

@@ -157,6 +157,18 @@ export interface OrderDetail_lines_variant_attributes {
   values: (OrderDetail_lines_variant_attributes_values | null)[];
 }
 
+export interface OrderDetail_lines_variant_color {
+  __typename: "VariantColor";
+  /**
+   * Color name
+   */
+  name: string;
+  /**
+   * Hex of the color
+   */
+  hex: string;
+}
+
 export interface OrderDetail_lines_variant_product_thumbnail {
   __typename: "Image";
   /**
@@ -227,6 +239,10 @@ export interface OrderDetail_lines_variant {
    * List of attributes assigned to this variant.
    */
   attributes: OrderDetail_lines_variant_attributes[];
+  /**
+   * Color of this ProductVariant
+   */
+  color: OrderDetail_lines_variant_color | null;
   product: OrderDetail_lines_variant_product;
 }
 

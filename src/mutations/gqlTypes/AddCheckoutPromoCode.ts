@@ -345,6 +345,18 @@ export interface AddCheckoutPromoCode_checkoutAddPromoCode_checkout_lines_varian
   values: (AddCheckoutPromoCode_checkoutAddPromoCode_checkout_lines_variant_attributes_values | null)[];
 }
 
+export interface AddCheckoutPromoCode_checkoutAddPromoCode_checkout_lines_variant_color {
+  __typename: "VariantColor";
+  /**
+   * Color name
+   */
+  name: string;
+  /**
+   * Hex of the color
+   */
+  hex: string;
+}
+
 export interface AddCheckoutPromoCode_checkoutAddPromoCode_checkout_lines_variant_product_thumbnail {
   __typename: "Image";
   /**
@@ -415,6 +427,10 @@ export interface AddCheckoutPromoCode_checkoutAddPromoCode_checkout_lines_varian
    * List of attributes assigned to this variant.
    */
   attributes: AddCheckoutPromoCode_checkoutAddPromoCode_checkout_lines_variant_attributes[];
+  /**
+   * Color of this ProductVariant
+   */
+  color: AddCheckoutPromoCode_checkoutAddPromoCode_checkout_lines_variant_color | null;
   product: AddCheckoutPromoCode_checkoutAddPromoCode_checkout_lines_variant_product;
 }
 
