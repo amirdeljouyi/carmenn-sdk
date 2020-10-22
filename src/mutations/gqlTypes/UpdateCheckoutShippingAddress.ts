@@ -110,6 +110,7 @@ export interface UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_che
   streetAddress1: string;
   streetAddress2: string;
   city: string;
+  cityArea: string;
   postalCode: string;
   phone: string;
   /**
@@ -511,6 +512,9 @@ export interface UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_che
 
 export interface UpdateCheckoutShippingAddress_checkoutShippingAddressUpdate_checkout {
   __typename: "Checkout";
+  /**
+   * The checkout's token.
+   */
   token: any;
   /**
    * The ID of the object.
@@ -644,6 +648,7 @@ export interface UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout_ship
   streetAddress1: string;
   streetAddress2: string;
   city: string;
+  cityArea: string;
   postalCode: string;
   phone: string;
   /**
@@ -1045,6 +1050,9 @@ export interface UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout_avai
 
 export interface UpdateCheckoutShippingAddress_checkoutEmailUpdate_checkout {
   __typename: "Checkout";
+  /**
+   * The checkout's token.
+   */
   token: any;
   /**
    * The ID of the object.

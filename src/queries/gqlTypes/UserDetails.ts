@@ -19,6 +19,7 @@ export interface UserDetails_me_defaultShippingAddress {
   streetAddress1: string;
   streetAddress2: string;
   city: string;
+  cityArea: string;
   postalCode: string;
   phone: string;
   /**
@@ -39,6 +40,7 @@ export interface UserDetails_me_addresses {
   streetAddress1: string;
   streetAddress2: string;
   city: string;
+  cityArea: string;
   postalCode: string;
   phone: string;
   /**

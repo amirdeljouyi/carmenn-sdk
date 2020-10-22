@@ -1,8 +1,8 @@
 <div align="center">
-  <h1>Saleor SDK</h1>
+  <h1>Carmenn SDK</h1>
 </div>
 
-This package contains methods providing Saleor business logic for storefront. It handles Saleor GraphQL queries and mutations, manages Apollo cache and provides internal state to manage popular storefront use cases, like user authentication or checkout process.
+This package based on Saleor SDK which contains methods providing Saleor business logic for storefront. It handles Saleor GraphQL queries and mutations, manages Apollo cache and provides internal state to manage popular storefront use cases, like user authentication or checkout process.
 
 Please take a look at [sample storefront](https://github.com/mirumee/saleor-storefront) which already uses Saleor SDK. For specific use cases you may also refer to [saleor-sdk/examples](https://github.com/mirumee/saleor-sdk/tree/add/examples/examples/react/typescript/src).
 

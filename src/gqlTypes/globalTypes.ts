@@ -76,6 +76,7 @@ export enum CollectionPublished {
 
 export enum CollectionSortField {
   AVAILABILITY = "AVAILABILITY",
+  DATE = "DATE",
   NAME = "NAME",
   PRODUCT_COUNT = "PRODUCT_COUNT",
 }

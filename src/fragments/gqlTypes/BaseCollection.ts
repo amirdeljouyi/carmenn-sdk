@@ -7,6 +7,18 @@
 // GraphQL fragment: BaseCollection
 // ====================================================
 
+export interface BaseCollection_backgroundImage {
+  __typename: "Image";
+  /**
+   * Alt text for an image.
+   */
+  alt: string | null;
+  /**
+   * The URL of the image.
+   */
+  url: string;
+}
+
 export interface BaseCollection {
   __typename: "Collection";
   /**
@@ -15,4 +27,5 @@ export interface BaseCollection {
   id: string;
   name: string;
   slug: string;
+  backgroundImage: BaseCollection_backgroundImage | null;
 }

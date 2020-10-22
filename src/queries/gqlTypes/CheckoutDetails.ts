@@ -91,6 +91,7 @@ export interface CheckoutDetails_checkout_shippingAddress {
   streetAddress1: string;
   streetAddress2: string;
   city: string;
+  cityArea: string;
   postalCode: string;
   phone: string;
   /**
@@ -492,6 +493,9 @@ export interface CheckoutDetails_checkout_availablePaymentGateways {
 
 export interface CheckoutDetails_checkout {
   __typename: "Checkout";
+  /**
+   * The checkout's token.
+   */
   token: any;
   /**
    * The ID of the object.

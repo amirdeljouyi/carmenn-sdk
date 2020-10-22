@@ -9,6 +9,18 @@ import { CollectionSortingInput, CollectionFilterInput } from "./../../gqlTypes/
 // GraphQL query operation: CollectionList
 // ====================================================
 
+export interface CollectionList_collections_edges_node_backgroundImage {
+  __typename: "Image";
+  /**
+   * Alt text for an image.
+   */
+  alt: string | null;
+  /**
+   * The URL of the image.
+   */
+  url: string;
+}
+
 export interface CollectionList_collections_edges_node {
   __typename: "Collection";
   /**
@@ -17,6 +29,7 @@ export interface CollectionList_collections_edges_node {
   id: string;
   name: string;
   slug: string;
+  backgroundImage: CollectionList_collections_edges_node_backgroundImage | null;
 }
 
 export interface CollectionList_collections_edges {

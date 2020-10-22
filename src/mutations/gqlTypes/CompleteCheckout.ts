@@ -38,6 +38,7 @@ export interface CompleteCheckout_checkoutComplete_order_shippingAddress {
   streetAddress1: string;
   streetAddress2: string;
   city: string;
+  cityArea: string;
   postalCode: string;
   phone: string;
   /**

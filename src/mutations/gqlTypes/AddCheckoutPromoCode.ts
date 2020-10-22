@@ -93,6 +93,7 @@ export interface AddCheckoutPromoCode_checkoutAddPromoCode_checkout_shippingAddr
   streetAddress1: string;
   streetAddress2: string;
   city: string;
+  cityArea: string;
   postalCode: string;
   phone: string;
   /**
@@ -494,6 +495,9 @@ export interface AddCheckoutPromoCode_checkoutAddPromoCode_checkout_availablePay
 
 export interface AddCheckoutPromoCode_checkoutAddPromoCode_checkout {
   __typename: "Checkout";
+  /**
+   * The checkout's token.
+   */
   token: any;
   /**
    * The ID of the object.

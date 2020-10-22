@@ -93,6 +93,7 @@ export interface UpdateCheckoutLine_checkoutLinesUpdate_checkout_shippingAddress
   streetAddress1: string;
   streetAddress2: string;
   city: string;
+  cityArea: string;
   postalCode: string;
   phone: string;
   /**
@@ -494,6 +495,9 @@ export interface UpdateCheckoutLine_checkoutLinesUpdate_checkout_availablePaymen
 
 export interface UpdateCheckoutLine_checkoutLinesUpdate_checkout {
   __typename: "Checkout";
+  /**
+   * The checkout's token.
+   */
   token: any;
   /**
    * The ID of the object.

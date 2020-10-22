@@ -38,6 +38,7 @@ export interface SetCustomerDefaultAddress_accountSetDefaultAddress_user_default
   streetAddress1: string;
   streetAddress2: string;
   city: string;
+  cityArea: string;
   postalCode: string;
   phone: string;
   /**
@@ -58,6 +59,7 @@ export interface SetCustomerDefaultAddress_accountSetDefaultAddress_user_address
   streetAddress1: string;
   streetAddress2: string;
   city: string;
+  cityArea: string;
   postalCode: string;
   phone: string;
   /**

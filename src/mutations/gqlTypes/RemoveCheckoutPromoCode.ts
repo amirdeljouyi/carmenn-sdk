@@ -93,6 +93,7 @@ export interface RemoveCheckoutPromoCode_checkoutRemovePromoCode_checkout_shippi
   streetAddress1: string;
   streetAddress2: string;
   city: string;
+  cityArea: string;
   postalCode: string;
   phone: string;
   /**
@@ -494,6 +495,9 @@ export interface RemoveCheckoutPromoCode_checkoutRemovePromoCode_checkout_availa
 
 export interface RemoveCheckoutPromoCode_checkoutRemovePromoCode_checkout {
   __typename: "Checkout";
+  /**
+   * The checkout's token.
+   */
   token: any;
   /**
    * The ID of the object.

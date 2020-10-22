@@ -38,6 +38,7 @@ export interface AccountUpdate_accountUpdate_user_defaultShippingAddress {
   streetAddress1: string;
   streetAddress2: string;
   city: string;
+  cityArea: string;
   postalCode: string;
   phone: string;
   /**
@@ -58,6 +59,7 @@ export interface AccountUpdate_accountUpdate_user_addresses {
   streetAddress1: string;
   streetAddress2: string;
   city: string;
+  cityArea: string;
   postalCode: string;
   phone: string;
   /**
