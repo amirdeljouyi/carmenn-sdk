@@ -201,8 +201,9 @@ export interface IntRangeInput {
 
 export interface PaymentInput {
   gateway: string;
-  token: string;
+  token?: string | null;
   amount?: any | null;
+  returnUrl?: string | null;
 }
 
 export interface PriceRangeInput {

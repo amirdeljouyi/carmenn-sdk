@@ -237,6 +237,8 @@ class CheckoutJobs extends JobsHandler<{}> {
       };
     }
 
+    console.log(data);
+
     this.localStorageHandler.setPayment({
       ...payment,
       creditCard,

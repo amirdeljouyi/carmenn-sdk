@@ -731,21 +731,21 @@ export class ApolloClientManager {
     returnUrl,
   }: CreatePaymentInput) => {
     try {
-      // const variables = {
-      //   checkoutId,
-      //   paymentInput: {
-      //     amount,
-      //     gateway,
-      //     returnUrl,
-      //     token,
-      //   },
-      // };
+      const variables = {
+        checkoutId,
+        paymentInput: {
+          amount,
+          gateway,
+          returnUrl,
+          token,
+        },
+      };
       const { data, errors } = await this.client.mutate<
         CreateCheckoutPayment,
         CreateCheckoutPaymentVariables
       >({
         mutation: CheckoutMutations.createCheckoutPaymentMutation,
-        // variables,
+        variables,
       });
 
       if (errors?.length) {

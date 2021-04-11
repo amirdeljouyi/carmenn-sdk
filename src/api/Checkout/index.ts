@@ -249,6 +249,7 @@ export class SaleorCheckoutAPI extends ErrorListener {
   createPayment = async (input: CreatePaymentInput): CheckoutResponse => {
     const checkoutId = this.saleorState.checkout?.id;
     const amount = this.saleorState.summaryPrices?.totalPrice?.gross.amount;
+    console.log(checkoutId);
 
     if (checkoutId && amount !== null && amount !== undefined) {
       const { data, dataError } = await this.jobsManager.run(
